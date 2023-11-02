@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    font-family: sans-serif;
+}
+.container {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.comom-form {
+    text-align: center;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    width: 300px;
+}
+.form-input{ 
+    height: 35px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border: 1px solid aliceblue;
+    color: aliceblue;
+}
+.form-button {
+    height: 35px;
+    border: 1px solid aliceblue;
+    cursor: pointer;
+}
