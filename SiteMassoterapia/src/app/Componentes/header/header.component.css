@@ -17,11 +17,17 @@ body {
   
   .logo {
     font-size: 1.5em;
+    height: 100%;
+    width: 40%;
+  }
+  nav{
+    width: 60%;
   }
   
   nav ul {
     list-style: none;
     display: flex;
+    justify-content: ;
   }
   
   nav li {
@@ -31,6 +37,10 @@ body {
   nav a {
     text-decoration: none;
     color: rgb(0, 0, 0);
+  }
+  .nav-list{
+    display: flex;
+    justify-content: space-evenly;
   }
   
   .menu-btn {
