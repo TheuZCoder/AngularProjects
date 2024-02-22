@@ -1,48 +1,51 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-  }
-  
-  header {
+}
+
+header {
     background-color: #333;
     padding: 15px;
     color: white;
-  }
-  
-  .navbar {
+}
+
+.navbar {
+    margin: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .logo {
+}
+
+.logo {
     font-size: 1.5em;
     height: 100%;
     width: 40%;
-  }
-  nav{
+}
+
+nav {
     width: 60%;
-  }
-  
-  nav ul {
+}
+
+nav ul {
     list-style: none;
     display: flex;
-  }
-  
-  nav li {
+}
+
+nav li {
     margin-right: 20px;
-  }
-  
-  nav a {
+}
+
+nav a {
     text-decoration: none;
     color: rgb(0, 0, 0);
-  }
-  .nav-list{
+}
+
+.nav-list {
     display: flex;
     justify-content: space-evenly;
-  }
-  
-  .menu-btn {
+}
+
+.menu-btn {
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -51,26 +54,25 @@ body {
     width: 30px;
     height: 30px;
     background-color: transparent;
-  }
-  
-  .bar {
+}
+
+.bar {
     height: 3px;
     width: 25px;
     background-color: white;
     margin: 5px 0;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .nav-list {
-      display: none;
+        display: none;
     }
-  
+
     .menu-btn {
-      display: flex;
+        display: flex;
     }
-  
+
     .mobile-menu {
-      display: none;
+        display: none;
     }
-  }
-  
+}

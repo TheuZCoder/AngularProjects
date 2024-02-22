@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+
+/* Reset padrão para elementos HTML */
+html,
+body,
+div,
+span,
+app-root {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* Definindo a borda da caixa como 'box-sizing: border-box' para todos os elementos */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Removendo decoração de lista padrão */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Removendo margens padrão de lista */
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Removendo decoração de link padrão */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Definindo fonte padrão e tamanho para o corpo */
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+}
+
+/* Adicione mais estilos globais conforme necessário */
+
+
+app-footer {
+    display: block;
+}
