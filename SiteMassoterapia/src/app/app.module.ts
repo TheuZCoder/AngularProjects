@@ -8,6 +8,9 @@ import { FooterComponent } from './Componentes/footer/footer.component';
 import { HomeComponent } from './View/home/home.component';
 import { LoginComponent } from './View/login/login.component';
 import { RouterModule } from '@angular/router';
+import { AgendamentoComponent } from './View/agendamento/agendamento.component';
+import { QuemSomosComponent } from './View/quem-somos/quem-somos.component';
+import { ProdutosComponent } from './View/produtos/produtos.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { RouterModule } from '@angular/router';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    AgendamentoComponent,
+    QuemSomosComponent,
+    ProdutosComponent
   ],
   imports: [
     BrowserModule,
