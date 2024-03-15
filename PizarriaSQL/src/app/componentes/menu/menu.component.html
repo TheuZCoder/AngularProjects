@@ -8,6 +8,7 @@
                 <h3>{{ produto.nome_pizza }}</h3>
                 <p>{{ produto.descricao_pizza }}</p>
                 <p>Preço: R$ {{ produto.preco_pizza}}</p>
+                <button (click)="adicionarAoCarrinho(produto)">Adicionar ao Carrinho</button>
             </div>
         </div>
 

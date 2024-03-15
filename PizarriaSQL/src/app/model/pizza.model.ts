@@ -14,3 +14,22 @@ export class Produto {
     }
   }
   
+export class Carrinho {
+  produtos: Produto[] = [];
+  total: number = 0;
+
+  adicionarPizza(produto: Produto): void {
+    this.produtos.push(produto);
+    this.calcularTotal();
+  }
+
+  removerPizza(index: number): void {
+    this.produtos.splice(index, 1);
+    this.calcularTotal();
+  }
+
+  private calcularTotal(): void {
+    this.total = this.produtos.reduce((acc, produto) => acc + produto.preco_pizza, 0);
+  }
+}
+  
