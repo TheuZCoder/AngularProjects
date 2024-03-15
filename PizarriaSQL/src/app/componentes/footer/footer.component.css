@@ -3,10 +3,9 @@ footer {
     color: white;
     padding: 10px 0;
     text-align: center;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
   }
   
