@@ -1,0 +1,22 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .slide {
+    flex: 0 0 auto;
+    width: 100%;
+    transition: transform 0.5s ease;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+  
