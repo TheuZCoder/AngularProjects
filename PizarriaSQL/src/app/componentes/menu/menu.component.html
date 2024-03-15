@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>Cardápio de Pizzas</h2>
+    <div class="pizza-list">
+        <div class="pizza-item" *ngFor="let pizza of pizzas">
+            <img [src]="pizza.image" alt="{{ pizza.name }}">
+            <h3>{{ pizza.name }}</h3>
+            <p>{{ pizza.description }}</p>
+            <p>Preço: R$ {{ pizza.price }}</p>
+        </div>
+    </div>
+</div>
