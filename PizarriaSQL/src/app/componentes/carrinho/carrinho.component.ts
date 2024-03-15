@@ -1,19 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { Produto } from 'src/app/model/pizza.model';
-import { PizzaService } from 'src/app/servico/pizza.service';
 import { CarrinhoService } from 'src/app/servico/carrinho.service';
+import { PizzaService } from 'src/app/servico/pizza.service';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'app-carrinho',
+  templateUrl: './carrinho.component.html',
+  styleUrls: ['./carrinho.component.css']
 })
-export class MenuComponent implements OnInit {
+export class CarrinhoComponent {
   produtos: Produto[] = [];
   carrinho: Produto[] = [];
 
-  constructor(private pizzaService: PizzaService, private carrinhoService: CarrinhoService) { }
+  constructor(private pizzaService: PizzaService, public carrinhoService: CarrinhoService) { }
 
   ngOnInit(): void {
     this.getPizzas();
