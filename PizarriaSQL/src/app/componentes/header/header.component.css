@@ -6,7 +6,11 @@ header {
     background-color: #ff4500;
     color: white;
   }
-  
+  .logo{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
   .logo img {
     width: 50px; /* Ajuste o tamanho conforme necessário */
     height: 50px; /* Ajuste o tamanho conforme necessário */
