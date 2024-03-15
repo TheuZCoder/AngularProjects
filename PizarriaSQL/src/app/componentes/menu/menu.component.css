@@ -14,8 +14,12 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
   }
-  
+  .container-item{
+   margin: 10px;
+  }
   .pizza-item {
+    display: flex;
+    flex-direction: column;
     border: 1px solid #eaeaea;
     border-radius: 8px;
     overflow: hidden;
