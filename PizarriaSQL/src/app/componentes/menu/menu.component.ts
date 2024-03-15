@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Produto } from 'src/app/model/pizza.model';
+import { PizzaService } from 'src/app/servico/pizza.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent {
-  pizzas = [
-    {
-      name: 'Pizza Margherita',
-      image: '/assets/pizzaria.png',
-      description: 'Molho de tomate, queijo mussarela, manjericão fresco.',
-      price: 25.00
-    },
-    {
-      name: 'Pizza Pepperoni',
-      image: '/assets/pizzaria.png',
-      description: 'Molho de tomate, queijo mussarela, pepperoni fatiado.',
-      price: 30.00
-    },
-    // Adicione mais pizzas conforme necessário
-  ];
+export class MenuComponent implements OnInit {
+  produtos: Produto[] = [];
+
+  constructor(private pizzaService: PizzaService) { }
+
+  ngOnInit(): void {
+    this.getPizzas();
+  }
+
+  getPizzas(): void {
+    this.pizzaService.getPizzas()
+      .subscribe(produtos => this.produtos = produtos);
+  }
 }

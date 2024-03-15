@@ -2,12 +2,12 @@
     <h2>Cardápio de Pizzas</h2>
     <div class="pizza-list">
 
-        <div class="pizza-item" *ngFor="let pizza of pizzas">
+        <div class="pizza-item" *ngFor="let produto of produtos">
             <div class="container-item">
-                <img [src]="pizza.image" alt="{{ pizza.name }}">
-                <h3>{{ pizza.name }}</h3>
-                <p>{{ pizza.description }}</p>
-                <p>Preço: R$ {{ pizza.price }}</p>
+                <img [src]="produto.image_pizza" alt="{{ produto.nome_pizza }}">
+                <h3>{{ produto.nome_pizza }}</h3>
+                <p>{{ produto.descricao_pizza }}</p>
+                <p>Preço: R$ {{ produto.preco_pizza}}</p>
             </div>
         </div>
 
