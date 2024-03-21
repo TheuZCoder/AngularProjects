@@ -31,6 +31,9 @@ export class CarrinhoComponent {
   mostrarCarrinho(): void {
     this.carrinhoService.mostrarCarrinho();
   }
+  ocultarCarrinho(): void {
+    this.carrinhoService.ocultarCarrinho();
+  }
 
   removerDoCarrinho(index: number): void {
     this.carrinhoService.removerDoCarrinho(index);

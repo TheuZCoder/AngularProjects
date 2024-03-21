@@ -1,5 +1,8 @@
 <div class="carrinho-container" *ngIf="mostrarCarrinho" [class.show]="carrinhoService.mostrar">
     <div class="carrinho">
+      <button class="close-button" (click)="ocultarCarrinho()">
+        <span class="close-icon">&times;</span>
+      </button>
       <h2>Carrinho de Compras</h2>
       <ul>
         <li *ngFor="let pizza of carrinhoService.carrinho.produtos; let i = index">

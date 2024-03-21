@@ -21,9 +21,11 @@ import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
     CarrinhoComponent
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

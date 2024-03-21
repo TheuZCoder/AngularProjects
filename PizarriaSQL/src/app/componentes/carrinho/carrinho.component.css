@@ -18,10 +18,22 @@
   }
   
   .carrinho {
-    margin-top: 50px;
+    margin-top: 10px;
   }
   
   .carrinho button {
     margin-left: 10px;
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .close-icon {
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
   }
   
