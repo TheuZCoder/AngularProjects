@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Produto } from '../model/pizza.model';
 
 @Injectable({
@@ -12,6 +12,11 @@ export class PizzaService {
   constructor(private http: HttpClient) { }
 
   getPizzas(): Observable<Produto[]> {
-    return this.http.get<Produto[]>(this.baseUrl);
+    return this.http.get<Produto[]>(this.baseUrl).pipe(
+      map(produtos => produtos.map(produto => ({
+        ...produto,
+        preco_pizza: Number(produto.preco_pizza) // Convertendo para número
+      })))
+    );
   }
 }

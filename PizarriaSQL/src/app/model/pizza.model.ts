@@ -28,8 +28,8 @@ export class Carrinho {
     this.calcularTotal();
   }
 
-  private calcularTotal(): void {
-    this.total = this.produtos.reduce((acc, produto) => acc + produto.preco_pizza, 0);
+  calcularTotal(): void {
+    this.total = this.produtos.reduce((acc, produtos) => acc + produtos.preco_pizza, 0);
   }
 }
   
