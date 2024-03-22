@@ -2,6 +2,9 @@
     max-width: 800px;
     margin: 0 auto;
   }
+  .cardapio{
+    margin-top: 20px;
+  }
   
   h2 {
     text-align: center;
@@ -101,6 +104,19 @@
   .img-carrinho{
     width: 35px;
     height: 35px;
+  }
+
+  @media screen and (max-width: 700px) {
+    .search-container{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2em;
+      width: 100%;
+    }
+    .search-container form{
+      width: 50%;
+      position: relative;
+    }
   }
   
   
