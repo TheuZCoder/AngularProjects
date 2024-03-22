@@ -5,7 +5,7 @@
     </form>
 </div>
 <div class="container">
-<div class="pizza-list">
+    <div class="pizza-list">
 
         <div class="pizza-item" *ngFor="let produto of produtos">
             <div class="container-item">
@@ -19,3 +19,7 @@
 
     </div>
 </div>
+
+<button class="btn-carrinho" (click)="mostrarCarrinho()">
+    <img class="img-carrinho" src="../../../assets/cesta.png" alt="">
+  </button>

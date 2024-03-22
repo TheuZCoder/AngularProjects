@@ -80,4 +80,27 @@
     width: 100%;
     text-align: center;
   }
+
+  .btn-carrinho {
+    position: fixed;
+    bottom: 75px;
+    right: 20px;
+    z-index: 1000; /* Garante que o botão fique sobre outros elementos */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Remove a borda do botão */
+    border-radius: 50%; /* Deixa o botão redondo */
+    padding: 10px; /* Espaçamento interno do botão */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra do botão */
+    transition: background-color 0.3s ease; /* Transição suave ao alterar a cor de fundo */
+  }
+  
+  .btn-carrinho:hover {
+    background-color: #ffffff; /* Cor de fundo ao passar o mouse sobre o botão */
+  }
+  .img-carrinho{
+    width: 35px;
+    height: 35px;
+  }
+  
   
