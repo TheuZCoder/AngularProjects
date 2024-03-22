@@ -1,6 +1,11 @@
+<h2>Cardápio de Pizzas</h2>
+<div class="search-container">
+    <form>
+        <input type="text" placeholder="Buscar sabor de pizza" (input)="search($event)">
+    </form>
+</div>
 <div class="container">
-    <h2>Cardápio de Pizzas</h2>
-    <div class="pizza-list">
+<div class="pizza-list">
 
         <div class="pizza-item" *ngFor="let produto of produtos">
             <div class="container-item">

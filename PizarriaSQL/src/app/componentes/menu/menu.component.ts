@@ -13,6 +13,8 @@ export class MenuComponent implements OnInit {
   produtos: Produto[] = [];
   carrinho: Produto[] = [];
 
+  searchTerm: string = '';
+
   constructor(private pizzaService: PizzaService, private carrinhoService: CarrinhoService) { }
 
   ngOnInit(): void {
@@ -35,5 +37,15 @@ export class MenuComponent implements OnInit {
 
   removerDoCarrinho(index: number): void {
     this.carrinhoService.removerDoCarrinho(index);
+  }
+
+  search(e:Event): void{
+
+    const target = e.target as HTMLInputElement
+    const value = target.value
+
+    this.produtos = this.produtos.filter(moment =>{
+      return moment.nome_pizza.toLowerCase().includes(value);
+    });
   }
 }
