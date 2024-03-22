@@ -11,6 +11,7 @@ import { CarrinhoService } from 'src/app/servico/carrinho.service';
 })
 export class MenuComponent implements OnInit {
   produtos: Produto[] = [];
+  produtosAll: Produto[] = [];
   carrinho: Produto[] = [];
 
   searchTerm: string = '';
@@ -22,8 +23,10 @@ export class MenuComponent implements OnInit {
   }
 
   getPizzas(): void {
-    this.pizzaService.getPizzas()
-      .subscribe(produtos => this.produtos = produtos);
+    this.pizzaService.getPizzas().subscribe(produtos => {
+      this.produtos = produtos;
+      this.produtosAll = produtos; // Armazenar os produtos originais
+    });
   }
 
   adicionarAoCarrinho(produto: Produto): void {
@@ -39,13 +42,12 @@ export class MenuComponent implements OnInit {
     this.carrinhoService.removerDoCarrinho(index);
   }
 
-  search(e:Event): void{
+  search(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    const value = target.value.toLowerCase();
 
-    const target = e.target as HTMLInputElement
-    const value = target.value
-
-    this.produtos = this.produtos.filter(moment =>{
-      return moment.nome_pizza.toLowerCase().includes(value);
-    });
+    this.produtos = this.produtosAll.filter(produto =>
+      produto.nome_pizza.toLowerCase().includes(value)
+    );
   }
 }
