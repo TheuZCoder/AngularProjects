@@ -3,6 +3,7 @@ import { LoginFuncionarioService } from 'src/app/servico/login-funcionario-servi
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+
 @Component({
   standalone:true,
   imports: [
@@ -23,11 +24,13 @@ export class LoginFuncionarioComponent {
     this.LoginFuncionarioService.loginUser(this.nome_atendente, this.senha_atendente)
       .subscribe((autenticado: boolean) => {
         if (autenticado) {
-          // Redirecionar ou fazer outras ações após o login bem-sucedido
           console.log('Usuário autenticado.');
+          this.router.navigateByUrl('cadastroPizzas');
+
         } else {
           // Tratar erro de autenticação, exibindo uma mensagem de erro
           console.log('Credenciais inválidas.');
+          alert("CRENDENCIAIS INVALIDA!!!")
         }
       });
 }

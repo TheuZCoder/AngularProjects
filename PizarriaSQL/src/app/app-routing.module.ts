@@ -4,6 +4,7 @@ import { HomeComponent } from './view/home/home.component';
 import { MenuComponent } from './componentes/menu/menu.component';
 import { FormsModule } from '@angular/forms'; 
 import { LoginFuncionarioComponent } from './view/login-funcionario/login-funcionario.component';
+import { CadastroPizzasComponent } from './view/cadastro-pizzas/cadastro-pizzas.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'loginFunc',
     component: LoginFuncionarioComponent
+  },
+  {
+    path: 'cadastroPizzas',
+    component: CadastroPizzasComponent
   },
 
 ];
