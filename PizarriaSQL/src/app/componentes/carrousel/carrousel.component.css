@@ -19,5 +19,6 @@
   img {
     width: 100%;
     height: 400px;
+    flex-grow: 1;
   }
   

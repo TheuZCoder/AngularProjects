@@ -9,6 +9,8 @@ import { HomeComponent } from './view/home/home.component';
 import { CarrouselComponent } from './componentes/carrousel/carrousel.component';
 import { MenuComponent } from './componentes/menu/menu.component';
 import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
     HomeComponent,
     CarrouselComponent,
     MenuComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
   ],
   imports: [
     
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],
