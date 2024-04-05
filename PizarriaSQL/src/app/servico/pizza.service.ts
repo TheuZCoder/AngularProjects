@@ -19,4 +19,8 @@ export class PizzaService {
       })))
     );
   }
+
+  cadastrarPizza(dadosPizza: any): Observable<any> {
+    return this.http.post<any>(this.baseUrl, dadosPizza);
+  }
 }

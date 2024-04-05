@@ -42,6 +42,26 @@ app.get('/menu', async (req, res) => {
     res.status(500).send('Erro ao consultar o banco de dados');
   }
 });
+
+app.post('/menu', async (req, res) => {
+  const { nome_pizza, image_pizza, descricao_pizza, preco_pizza } = req.body;
+
+  try {
+    const client = await pool.connect();
+    const result = await client.query(
+      'INSERT INTO pizzas (nome_pizza, image_pizza, descricao_pizza, preco_pizza) VALUES ($1, $2, $3, $4) RETURNING *',
+      [nome_pizza, image_pizza, descricao_pizza, preco_pizza]
+    );
+    client.release();
+
+    const novaPizza = result.rows[0];
+    res.status(201).json(novaPizza);
+  } catch (error) {
+    console.error('Erro ao cadastrar pizza:', error);
+    res.status(500).send('Erro interno do servidor');
+  }
+});
+
 app.get('/loginFunc', async (req, res) => {
   try {
     const client = await pool.connect();
