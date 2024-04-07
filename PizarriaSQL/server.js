@@ -49,7 +49,7 @@ app.post('/menu', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query(
-      'INSERT INTO pizzas (nome_pizza, image_pizza, descricao_pizza, preco_pizza) VALUES ($1, $2, $3, $4) RETURNING *',
+      'INSERT INTO produto (nome_pizza, image_pizza, descricao_pizza, preco_pizza) VALUES ($1, $2, $3, $4) RETURNING *',
       [nome_pizza, image_pizza, descricao_pizza, preco_pizza]
     );
     client.release();

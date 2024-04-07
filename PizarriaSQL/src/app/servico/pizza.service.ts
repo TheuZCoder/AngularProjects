@@ -4,23 +4,25 @@ import { Observable, map } from 'rxjs';
 import { Produto } from '../model/pizza.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PizzaService {
   private baseUrl = 'http://localhost:3000/menu';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getPizzas(): Observable<Produto[]> {
     return this.http.get<Produto[]>(this.baseUrl).pipe(
-      map(produtos => produtos.map(produto => ({
-        ...produto,
-        preco_pizza: Number(produto.preco_pizza) // Convertendo para número
-      })))
+      map((produtos) =>
+        produtos.map((produto) => ({
+          ...produto,
+          preco_pizza: Number(produto.preco_pizza), // Convertendo para número
+        }))
+      )
     );
   }
 
-  cadastrarPizza(dadosPizza: any): Observable<any> {
-    return this.http.post<any>(this.baseUrl, dadosPizza);
+  cadastrarPizza(pizza: Produto): Observable<any> {
+    return this.http.post<any>(this.baseUrl, pizza);
   }
 }
