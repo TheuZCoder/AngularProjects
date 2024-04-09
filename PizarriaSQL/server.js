@@ -73,10 +73,10 @@ app.delete('/menu/:id', (req, res) => {
       res.status(500).json({ error: 'Erro interno ao excluir pizza.' });
     } else {
       if (result.rowCount > 0) {
-        // Se a pizza foi excluída com sucesso
+       
         res.status(200).json({ message: 'Pizza excluída com sucesso!' });
       } else {
-        // Se o ID não existe no banco de dados
+     
         res.status(404).json({ error: 'Pizza não encontrada.' });
       }
     }

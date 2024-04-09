@@ -7,7 +7,10 @@
     background-color: #f9f9f9;
     margin-bottom: 50px;
   }
-  
+  .edit-cardapio{
+    display: flex;
+    justify-content: center;
+  }
   .form-group {
     margin-bottom: 20px;
   }
