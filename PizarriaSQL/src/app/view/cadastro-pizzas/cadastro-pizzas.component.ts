@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PizzaService } from '../../servico/pizza.service';
 import { Produto } from '../../model/pizza.model';
 
@@ -7,11 +7,16 @@ import { Produto } from '../../model/pizza.model';
   templateUrl: './cadastro-pizzas.component.html',
   styleUrls: ['./cadastro-pizzas.component.css'],
 })
-export class CadastroPizzasComponent {
+export class CadastroPizzasComponent implements OnInit{
+  produtosAll: Produto[] = [];
   produto: Produto = new Produto('', '', '', 0); // Instância vazia da classe Pizza para o formulário
   mensagem: string = ''; // Mensagem para exibir após o cadastro
 
   constructor(private pizzaService: PizzaService) {}
+  
+  ngOnInit(): void {
+    this.getPizzas();
+  }
 
   cadastrarPizza(): void {
     this.pizzaService.cadastrarPizza(this.produto).subscribe(
@@ -26,5 +31,11 @@ export class CadastroPizzasComponent {
         this.mensagem = 'Erro ao cadastrar pizza. Por favor, tente novamente.';
       }
     );
+  }
+
+  getPizzas(): void {
+    this.pizzaService.getPizzas().subscribe(produtos => {
+      this.produtosAll = produtos;
+    });
   }
 }

@@ -5,6 +5,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    margin-bottom: 50px;
   }
   
   .form-group {
@@ -30,4 +31,48 @@
   .btn-primary:hover {
     background-color: #0056b3;
   }
+
+  .cardapio{
+    margin-top: 20px;
+  }
   
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+  
+  .pizza-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+  .container-item{
+   margin: 10px;
+  }
+  .pizza-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .pizza-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .pizza-item img {
+    width: 30px;
+    height: 30px;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .pizza-info {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eaeaea;
+  }

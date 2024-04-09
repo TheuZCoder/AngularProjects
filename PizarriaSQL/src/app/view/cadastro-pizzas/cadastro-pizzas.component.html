@@ -22,3 +22,19 @@
     <div *ngIf="mensagem" class="alert alert-success">{{ mensagem }}</div>
   </div>
   
+  <div class="container">
+    <div class="pizza-list">
+
+        <div class="pizza-item" *ngFor="let produto of produtosAll">
+            <div class="container-item">
+                <img [src]="produto.image_pizza" alt="{{ produto.nome_pizza }}">
+                <h3>{{ produto.nome_pizza }}</h3>
+                <p>{{ produto.descricao_pizza }}</p>
+                <p>Preço: R$ {{ produto.preco_pizza}}</p>
+                <button>Editar</button>
+                <button>Excluir</button>
+            </div>
+        </div>
+
+    </div>
+</div>
