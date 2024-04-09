@@ -25,4 +25,13 @@ export class PizzaService {
   cadastrarPizza(pizza: Produto): Observable<any> {
     return this.http.post<any>(this.baseUrl, pizza);
   }
+  editarPizza(pizza: Produto): Observable<any> {
+    const url = `${this.baseUrl}/${pizza.id_pizza}`;
+    return this.http.put<any>(url, pizza);
+  }
+
+  excluirPizza(id: number): Observable<number> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<number>(url);
+  }
 }

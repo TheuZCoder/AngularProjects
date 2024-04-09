@@ -62,6 +62,27 @@ app.post('/menu', async (req, res) => {
   }
 });
 
+app.delete('/menu/:id', (req, res) => {
+  const id = req.params.id; 
+
+  const query = 'DELETE FROM produto WHERE id_pizza = $1'
+
+  pool.query(query, [id], (error, result) => {
+    if (error) {
+      console.error('Erro ao excluir pizza:', error);
+      res.status(500).json({ error: 'Erro interno ao excluir pizza.' });
+    } else {
+      if (result.rowCount > 0) {
+        // Se a pizza foi excluída com sucesso
+        res.status(200).json({ message: 'Pizza excluída com sucesso!' });
+      } else {
+        // Se o ID não existe no banco de dados
+        res.status(404).json({ error: 'Pizza não encontrada.' });
+      }
+    }
+  });
+});
+
 app.get('/loginFunc', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -95,10 +116,7 @@ app.post('/loginFunc', async (req, res) => {
   }
 });
 
-// Middleware para bloquear outras rotas
-app.use((req, res, next) => {
-  res.status(403).send('Acesso proibido');
-});
+
 
 app.listen(port, () => {
   console.log(`Servidor iniciado em http://localhost:${port}`);
