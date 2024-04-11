@@ -32,10 +32,13 @@
                 <h3>{{ produto.nome_pizza }}</h3>
                 <p>{{ produto.descricao_pizza }}</p>
                 <p>Preço: R$ {{ produto.preco_pizza}}</p>
-                <button>Editar</button>
+                
+                <button (click)="editarPizza(produto)" class="btn btn-danger">Editar</button>
                 <button (click)="excluirPizza(produto.id_pizza)" class="btn btn-danger">Excluir</button>
             </div>
         </div>
 
     </div>
 </div>
+
+

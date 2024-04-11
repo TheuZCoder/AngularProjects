@@ -29,6 +29,46 @@ pool.connect((err, client, release) => {
   client.release(); // Libera o cliente de volta para o pool
 });
 
+app.get('/menu/:id', async (req, res) => {
+  const pizzaId = req.params.id;
+
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM produto WHERE id_pizza = $1', [pizzaId]);
+    const pizza = result.rows[0]; // Assumindo que há apenas uma pizza com o ID específico
+    client.release();
+
+    if (pizza) {
+      res.json(pizza);
+    } else {
+      res.status(404).send('Pizza não encontrada');
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro ao consultar o banco de dados');
+  }
+});
+
+app.put('/menu/:id', async (req, res) => {
+  const id = req.params.id;
+  const { nome_pizza, descricao_pizza, preco_pizza,image_pizza } = req.body; // Supondo que esses são os dados a serem atualizados
+
+  try {
+    const client = await pool.connect();
+    const result = await client.query('UPDATE produto SET nome_pizza=$1,image_pizza=$2,descricao_pizza=$3, preco_pizza=$4 WHERE id_pizza=$5', [nome_pizza,image_pizza, descricao_pizza, preco_pizza, id]);
+    client.release();
+
+    if (result.rowCount === 1) {
+      res.status(200).send('Pizza editada com sucesso!');
+    } else {
+      res.status(404).send('Pizza não encontrada');
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Erro ao editar pizza');
+  }
+});
+
 // Rota para obter o menu
 app.get('/menu', async (req, res) => {
   try {

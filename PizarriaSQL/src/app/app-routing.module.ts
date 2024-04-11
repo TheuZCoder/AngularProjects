@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginFuncionarioComponent } from './view/login-funcionario/login-funcionario.component';
 import { CadastroPizzasComponent } from './view/cadastro-pizzas/cadastro-pizzas.component';
 import { AuthGuard } from './servico/guard.service';
+import { EditarPizzasComponent } from './view/editar-pizzas/editar-pizzas.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'cadastroPizzas',
     component: CadastroPizzasComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'editarPizzas/:id',
+    component: EditarPizzasComponent,
     canActivate: [AuthGuard]
   },
 

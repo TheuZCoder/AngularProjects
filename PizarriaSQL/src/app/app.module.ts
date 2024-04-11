@@ -12,6 +12,7 @@ import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CadastroPizzasComponent } from './view/cadastro-pizzas/cadastro-pizzas.component';
+import { EditarPizzasComponent } from './view/editar-pizzas/editar-pizzas.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CadastroPizzasComponent } from './view/cadastro-pizzas/cadastro-pizzas.
     MenuComponent,
     CarrinhoComponent,
     CadastroPizzasComponent,
+    EditarPizzasComponent,
   ],
   imports: [
     

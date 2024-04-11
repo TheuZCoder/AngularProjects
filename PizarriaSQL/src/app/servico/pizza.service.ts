@@ -22,9 +22,16 @@ export class PizzaService {
     );
   }
 
+
+  getPizzaPorId(id: number): Observable<Produto> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Produto>(url);
+  }
+
   cadastrarPizza(pizza: Produto): Observable<any> {
     return this.http.post<any>(this.baseUrl, pizza);
   }
+  
   editarPizza(pizza: Produto): Observable<any> {
     const url = `${this.baseUrl}/${pizza.id_pizza}`;
     return this.http.put<any>(url, pizza);

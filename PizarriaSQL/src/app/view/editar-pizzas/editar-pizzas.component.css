@@ -1,0 +1,47 @@
+ /* Estilo para o modal de edição */
+ .modal-content {
+    background-color: #fff; /* Cor de fundo do modal */
+    border-radius: 10px; /* Bordas arredondadas */
+  }
+  
+  .modal-header {
+    background-color: #007bff; /* Cor de fundo do cabeçalho */
+    color: #fff; /* Cor do texto do cabeçalho */
+    border-radius: 10px 10px 0 0; /* Bordas arredondadas no topo */
+  }
+  
+  .modal-title {
+    font-size: 1.5rem; /* Tamanho do título do modal */
+  }
+  
+  .modal-body {
+    padding: 20px; /* Espaçamento interno */
+  }
+  
+  .modal-footer {
+    background-color: #f8f9fa; /* Cor de fundo do rodapé */
+    border-radius: 0 0 10px 10px; /* Bordas arredondadas na parte inferior */
+  }
+  
+  .btn-primary {
+    background-color: #007bff; /* Cor de fundo do botão primário */
+    color: #fff; /* Cor do texto do botão primário */
+    border-color: #007bff; /* Cor da borda do botão primário */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Cor de fundo do botão primário ao passar o mouse */
+    border-color: #0056b3; /* Cor da borda do botão primário ao passar o mouse */
+  }
+  
+  .btn-danger {
+    background-color: #dc3545; /* Cor de fundo do botão de perigo */
+    color: #fff; /* Cor do texto do botão de perigo */
+    border-color: #dc3545; /* Cor da borda do botão de perigo */
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333; /* Cor de fundo do botão de perigo ao passar o mouse */
+    border-color: #c82333; /* Cor da borda do botão de perigo ao passar o mouse */
+  }
+  
