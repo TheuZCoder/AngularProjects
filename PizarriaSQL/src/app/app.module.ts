@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CadastroPizzasComponent } from './view/cadastro-pizzas/cadastro-pizzas.component';
 import { EditarPizzasComponent } from './view/editar-pizzas/editar-pizzas.component';
+import { LoginClienteComponent } from './view/login-cliente/login-cliente.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EditarPizzasComponent } from './view/editar-pizzas/editar-pizzas.compon
     CarrinhoComponent,
     CadastroPizzasComponent,
     EditarPizzasComponent,
+    LoginClienteComponent,
   ],
   imports: [
     

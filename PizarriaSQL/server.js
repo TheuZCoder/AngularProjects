@@ -155,6 +155,62 @@ app.post('/loginFunc', async (req, res) => {
     res.status(500).send('Erro interno do servidor');
   }
 });
+ //GET PARA PEGAR OS CLIENTES CADASTRADOS
+app.get('/loginCliente', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM clientes');
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Erro ao obter clientes:', error);
+    res.status(500).json({ error: 'Erro interno do servidor' });
+  }
+});
+
+//ROTA PARA LOGIN DE CLIENTES 
+app.post('/loginCliente', async (req, res) => {
+  const { email, senha } = req.body;
+
+  try {
+      const client = await pool.connect();
+      const result = await client.query('SELECT * FROM clientes WHERE email_cliente = $1 AND senha_cliente = $2', [email, senha]);
+
+      if (result.rows.length === 1) {
+          res.status(200).json({ message: 'Login Autorizado', cliente: cliente.rows[0] });
+      } else {
+          res.status(401).json({ message: 'Credenciais Invalidas' });
+      }
+  } catch (error) {
+      console.error('Error during login:', error);
+      res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+//ROTA PARA CADASTRAR NOVOS CLIENTES
+app.post('/cadastro-cliente', async (req, res) => {
+  const { nome, email, endereco, telefone, senha } = req.body;
+
+  try {
+      // Verificar se o email já está cadastrado
+      const clienteExistente = await pool.query('SELECT * FROM clientes WHERE email_cliente = $1', [email]);
+
+      if (clienteExistente.rows.length > 0) {
+          return res.status(400).json({ message: 'Email já cadastrado' });
+      }
+
+      // Inserir novo cliente no banco de dados
+      const novoCliente = await pool.query(
+          'INSERT INTO clientes (nome_cliente, email_cliente, endereco_cliente, telefone_cliente, senha_cliente) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+          [nome, email, endereco, telefone, senha]
+      );
+
+      res.status(201).json({ message: 'Cliente cadastrado com sucesso', cliente: novoCliente.rows[0] });
+  } catch (error) {
+      console.error('Error during client registration:', error);
+      res.status(500).json({ message: 'Internal server error' });
+  }
+});
 
 
 

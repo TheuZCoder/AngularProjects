@@ -1,0 +1,43 @@
+.container{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: #ff4500;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h2 {
+    color: white;
+  }
+  
+  label {
+    color: white;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+  }
+  
+  button {
+    background-color: white;
+    color: #ff4500;
+    border: none;
+    cursor: pointer;
+  }
+  

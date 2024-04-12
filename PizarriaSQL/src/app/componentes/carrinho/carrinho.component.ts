@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Produto } from 'src/app/model/pizza.model';
 import { CarrinhoService } from 'src/app/servico/carrinho.service';
 import { PizzaService } from 'src/app/servico/pizza.service';
@@ -12,7 +13,7 @@ export class CarrinhoComponent {
   produtos: Produto[] = [];
   carrinho: Produto[] = [];
 
-  constructor(private pizzaService: PizzaService, public carrinhoService: CarrinhoService) { }
+  constructor(private pizzaService: PizzaService, public carrinhoService: CarrinhoService, private router: Router) { }
 
   ngOnInit(): void {
     this.getPizzas();
@@ -39,7 +40,26 @@ export class CarrinhoComponent {
     this.carrinhoService.removerDoCarrinho(index);
   }
 
-  realizarCompra(){
-    
+  realizarCompra(): void {
+    // Verificar se o usuário está logado
+    const usuarioLogado = this.verificarUsuarioLogado();
+
+    if (usuarioLogado) {
+      // Lógica para realizar a compra
+      this.efetuarCompra();
+    } else {
+      // Redirecionar para a tela de login
+      this.router.navigate(['/login']);
+    }
+  }
+
+  verificarUsuarioLogado(): boolean {
+    // Lógica para verificar se o usuário está logado
+    // Aqui você pode usar o serviço de autenticação ou qualquer outra forma de verificação
+    return true; // Exemplo: sempre retornando verdadeiro para simular o usuário logado
+  }
+
+  efetuarCompra(): void {
+    // Lógica para efetuar a compra
   }
 }

@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 
 
 @Component({
-  standalone:true,
+  standalone: true,
   imports: [
-    FormsModule 
+    FormsModule
   ],
   selector: 'app-login-funcionario',
   templateUrl: './login-funcionario.component.html',
@@ -18,7 +18,7 @@ export class LoginFuncionarioComponent {
   senha_atendente: string = '';
   errorMessage: string = '';
 
-  constructor(private LoginFuncionarioService: LoginFuncionarioService,private router: Router) { }
+  constructor(private LoginFuncionarioService: LoginFuncionarioService, private router: Router) { }
 
   Login(): void {
     this.LoginFuncionarioService.loginUser(this.nome_atendente, this.senha_atendente)
@@ -33,5 +33,5 @@ export class LoginFuncionarioComponent {
           alert("CRENDENCIAIS INVALIDA!!!")
         }
       });
-}
+  }
 }

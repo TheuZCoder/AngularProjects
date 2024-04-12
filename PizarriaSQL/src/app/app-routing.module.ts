@@ -7,6 +7,7 @@ import { LoginFuncionarioComponent } from './view/login-funcionario/login-funcio
 import { CadastroPizzasComponent } from './view/cadastro-pizzas/cadastro-pizzas.component';
 import { AuthGuard } from './servico/guard.service';
 import { EditarPizzasComponent } from './view/editar-pizzas/editar-pizzas.component';
+import { LoginClienteComponent } from './view/login-cliente/login-cliente.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
     path: 'editarPizzas/:id',
     component: EditarPizzasComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'loginCliente',
+    component: LoginClienteComponent
   },
 
 ];
