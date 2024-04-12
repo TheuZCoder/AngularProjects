@@ -29,6 +29,7 @@ pool.connect((err, client, release) => {
   client.release(); // Libera o cliente de volta para o pool
 });
 
+//ROTA DE GET PARA LISTAR AS PIZZAS ANTES DE CONSEGUIR PUXAR O ID PARA EDIÇÃO
 app.get('/menu/:id', async (req, res) => {
   const pizzaId = req.params.id;
 
@@ -49,6 +50,7 @@ app.get('/menu/:id', async (req, res) => {
   }
 });
 
+//ROTA PARA EDITAR AS PIZZAS JA CADASTRADAS
 app.put('/menu/:id', async (req, res) => {
   const id = req.params.id;
   const { nome_pizza, descricao_pizza, preco_pizza,image_pizza } = req.body; // Supondo que esses são os dados a serem atualizados
@@ -83,6 +85,7 @@ app.get('/menu', async (req, res) => {
   }
 });
 
+// ROTA PARA CADASTRAR NOVAS PIZZAS
 app.post('/menu', async (req, res) => {
   const { nome_pizza, image_pizza, descricao_pizza, preco_pizza } = req.body;
 
@@ -102,6 +105,7 @@ app.post('/menu', async (req, res) => {
   }
 });
 
+//ROTA PARA DELETAR PIZZAS
 app.delete('/menu/:id', (req, res) => {
   const id = req.params.id; 
 
