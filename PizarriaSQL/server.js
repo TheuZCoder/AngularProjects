@@ -59,13 +59,13 @@ app.put('/menu/:id', async (req, res) => {
     client.release();
 
     if (result.rowCount === 1) {
-      res.status(200).send('Pizza editada com sucesso!');
+      res.status(200).json({ message: 'Pizza editada com sucesso!' }); 
     } else {
-      res.status(404).send('Pizza não encontrada');
+      res.status(404).json({ message: 'Pizza não encontrada' }); 
     }
   } catch (err) {
     console.error(err);
-    res.status(500).send('Erro ao editar pizza');
+    res.status(500).json({ message: 'Erro ao editar pizza' }); 
   }
 });
 

@@ -1,47 +1,49 @@
- /* Estilo para o modal de edição */
- .modal-content {
-    background-color: #fff; /* Cor de fundo do modal */
-    border-radius: 10px; /* Bordas arredondadas */
-  }
-  
-  .modal-header {
-    background-color: #007bff; /* Cor de fundo do cabeçalho */
-    color: #fff; /* Cor do texto do cabeçalho */
-    border-radius: 10px 10px 0 0; /* Bordas arredondadas no topo */
-  }
-  
-  .modal-title {
-    font-size: 1.5rem; /* Tamanho do título do modal */
-  }
-  
-  .modal-body {
-    padding: 20px; /* Espaçamento interno */
-  }
-  
-  .modal-footer {
-    background-color: #f8f9fa; /* Cor de fundo do rodapé */
-    border-radius: 0 0 10px 10px; /* Bordas arredondadas na parte inferior */
-  }
-  
-  .btn-primary {
-    background-color: #007bff; /* Cor de fundo do botão primário */
-    color: #fff; /* Cor do texto do botão primário */
-    border-color: #007bff; /* Cor da borda do botão primário */
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3; /* Cor de fundo do botão primário ao passar o mouse */
-    border-color: #0056b3; /* Cor da borda do botão primário ao passar o mouse */
-  }
-  
-  .btn-danger {
-    background-color: #dc3545; /* Cor de fundo do botão de perigo */
-    color: #fff; /* Cor do texto do botão de perigo */
-    border-color: #dc3545; /* Cor da borda do botão de perigo */
-  }
-  
-  .btn-danger:hover {
-    background-color: #c82333; /* Cor de fundo do botão de perigo ao passar o mouse */
-    border-color: #c82333; /* Cor da borda do botão de perigo ao passar o mouse */
-  }
-  
+/* Estilo para centralizar o modal de edição */
+#editarPizzaModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px; /* Ajuste para posicionar o modal mais para baixo na tela */
+}
+
+#editarPizzaModal .modal-dialog {
+  max-width: 500px; /* Largura máxima do modal */
+  border: 2px solid #ff4500; /* Borda circular em laranja */
+  border-radius: 15px; /* Raio da borda */
+}
+
+#editarPizzaModal .modal-content {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+#editarPizzaModal .modal-body {
+  background-color: #f8f9fa; /* Cor de fundo para o corpo do modal */
+}
+
+#editarPizzaModal .form-group {
+  margin-bottom: 20px;
+}
+
+#editarPizzaModal .btn-primary {
+  background-color: #e6761c; /* Botão salvar com cor laranja */
+  border-color: #e6761c; /* Borda do botão */
+}
+
+#editarPizzaModal .btn-primary:hover {
+  background-color: #ff4500; /* Cor mais escura ao passar o mouse */
+  border-color: #ff4500;
+}
+
+#editarPizzaModal .alert-success {
+  background-color: #d4edda; /* Cor de fundo para a mensagem de sucesso */
+  border-color: #c3e6cb; /* Borda da mensagem de sucesso */
+  color: #155724; /* Texto verde escuro */
+}
+
+#descricaoPizza {
+  width: 400px; /* Largura do input */
+  height: 100px; /* Altura do input */
+  resize: none; /* Impede o redimensionamento do textarea pelo usuário */
+}

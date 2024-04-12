@@ -41,21 +41,23 @@ export class CadastroPizzasComponent implements OnInit {
     );
   }
   excluirPizza(id: number): void {
-    this.pizzaService.excluirPizza(id).subscribe(
-      (response) => {
-        console.log('Pizza excluída com sucesso:', response);
-        // Atualizar a lista de pizzas após a exclusão
-        this.getPizzas();
-      },
-      (error) => {
-        console.error('Erro ao excluir pizza:', error);
-        if (error.status === 403) {
-          this.mensagem = 'Acesso proibido. Verifique suas permissões.';
-        } else {
-          this.mensagem = 'Erro ao excluir pizza. Por favor, tente novamente.';
+    if (confirm('Tem certeza que deseja excluir esta pizza?')) {
+      this.pizzaService.excluirPizza(id).subscribe(
+        (response) => {
+          console.log('Pizza excluída com sucesso:', response);
+          // Atualizar a lista de pizzas após a exclusão
+          this.getPizzas();
+        },
+        (error) => {
+          console.error('Erro ao excluir pizza:', error);
+          if (error.status === 403) {
+            this.mensagem = 'Acesso proibido. Verifique suas permissões.';
+          } else {
+            this.mensagem = 'Erro ao excluir pizza. Por favor, tente novamente.';
+          }
         }
-      }
-    );
+      );
+    }
   }
   editarPizza(pizza: Produto): void {
     this.router.navigate(['editarPizzas', pizza.id_pizza]);

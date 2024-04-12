@@ -1,33 +1,37 @@
 <!-- Modal de Edição -->
 <div class="modal fade" id="editarPizzaModal" tabindex="-1" aria-labelledby="editarPizzaModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editarPizzaModalLabel">Editar Pizza</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form (ngSubmit)="salvarEdicao()">
-            <div class="form-group">
-              <label for="nomePizza">Nome da Pizza:</label>
-              <input type="text" id="nomePizza" name="nomePizza" [(ngModel)]="produto.nome_pizza" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="imagemPizza">Imagem da Pizza (URL):</label>
-              <input type="text" id="imagemPizza" name="imagemPizza" [(ngModel)]="produto.image_pizza" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="descricaoPizza">Descrição da Pizza:</label>
-              <textarea id="descricaoPizza" name="descricaoPizza" [(ngModel)]="produto.descricao_pizza" class="form-control" required></textarea>
-            </div>
-            <div class="form-group">
-              <label for="precoPizza">Preço da Pizza:</label>
-              <input type="number" id="precoPizza" name="precoPizza" [(ngModel)]="produto.preco_pizza" class="form-control" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Salvar Edição</button>
-          </form>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editarPizzaModalLabel">Editar Pizza</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="salvarEdicao()">
+          <div class="form-group">
+            <label for="nomePizza">Nome da Pizza:</label>
+            <input type="text" id="nomePizza" name="nomePizza" [(ngModel)]="produto.nome_pizza" class="form-control"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="imagemPizza">Imagem da Pizza (URL):</label>
+            <input type="text" id="imagemPizza" name="imagemPizza" [(ngModel)]="produto.image_pizza"
+              class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="descricaoPizza">Descrição da Pizza:</label>
+            <textarea id="descricaoPizza" name="descricaoPizza" [(ngModel)]="produto.descricao_pizza"
+              class="form-control" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="precoPizza">Preço da Pizza:</label>
+            <input type="number" id="precoPizza" name="precoPizza" [(ngModel)]="produto.preco_pizza"
+              class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Salvar Edição</button>
+        </form>
       </div>
     </div>
   </div>
-  <div *ngIf="mensagem" class="alert alert-success">{{ mensagem }}</div>
+</div>
+<div *ngIf="mensagem" class="alert alert-success">{{ mensagem }}</div>
