@@ -5,14 +5,16 @@
         <span class="close-icon">&times;</span>
       </button>
       <h2>Carrinho de Compras</h2>
-  </div>
-      <ul>
-        <li *ngFor="let pizza of carrinhoService.carrinho.produtos; let i = index">
-          {{ pizza.nome_pizza }} - R$ {{ pizza.preco_pizza }}
-          <button (click)="removerDoCarrinho(i)">Remover</button>
-        </li>
-      </ul>
-      <p>Total: R$ {{ carrinhoService.carrinho.total }}</p>
     </div>
+    <ul>
+      <li *ngFor="let pizza of carrinhoService.carrinho.produtos; let i = index">
+        {{ pizza.nome_pizza }} - R$ {{ pizza.preco_pizza }}
+        <button (click)="removerDoCarrinho(i)">Remover</button>
+      </li>
+    </ul>
+    <p>Total: R$ {{ carrinhoService.carrinho.total }}</p>
   </div>
-  
+  <div class="bottom-container">
+    <button class="btn-comprar" (click)="realizarCompra()">Comprar</button>
+  </div>
+</div>

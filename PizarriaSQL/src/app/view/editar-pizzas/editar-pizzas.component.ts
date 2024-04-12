@@ -43,9 +43,6 @@ export class EditarPizzasComponent implements OnInit {
       (response) => {
         console.log('Pizza editada com sucesso:', response);
         this.mensagem = 'Pizza editada com sucesso!';
-        // Limpar os campos do formulário após a edição (opcional)
-        //this.produto = new Produto(0, '', '', '', 0);
-        // Redirecionar para a página de cadastro de pizzas após a edição
         this.router.navigate(['cadastroPizzas']);
       },
       (error) => {

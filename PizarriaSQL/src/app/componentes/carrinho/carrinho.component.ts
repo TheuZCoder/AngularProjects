@@ -38,4 +38,8 @@ export class CarrinhoComponent {
   removerDoCarrinho(index: number): void {
     this.carrinhoService.removerDoCarrinho(index);
   }
+
+  realizarCompra(){
+    
+  }
 }
