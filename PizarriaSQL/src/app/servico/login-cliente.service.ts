@@ -20,7 +20,6 @@ export class LoginClienteService {
     return this.http.get<Cliente[]>(this.apiUrl);
   }
 
-
   loginUser(nome_cliente: string, senha_cliente: string): Observable<boolean> {
     return this.getUsers().pipe(
       map((users: Cliente[]) => {

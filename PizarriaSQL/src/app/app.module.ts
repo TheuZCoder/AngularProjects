@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CadastroPizzasComponent } from './view/cadastro-pizzas/cadastro-pizzas.component';
 import { EditarPizzasComponent } from './view/editar-pizzas/editar-pizzas.component';
 import { LoginClienteComponent } from './view/login-cliente/login-cliente.component';
+import { ClienteCadastroComponent } from './view/cliente-cadastro/cliente-cadastro.component';
+import { LoginClienteService } from './servico/login-cliente.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { LoginClienteComponent } from './view/login-cliente/login-cliente.compon
     CadastroPizzasComponent,
     EditarPizzasComponent,
     LoginClienteComponent,
+    ClienteCadastroComponent,
   ],
   imports: [
     
@@ -37,7 +40,7 @@ import { LoginClienteComponent } from './view/login-cliente/login-cliente.compon
     ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [LoginClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

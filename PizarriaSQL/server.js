@@ -53,21 +53,21 @@ app.get('/menu/:id', async (req, res) => {
 //ROTA PARA EDITAR AS PIZZAS JA CADASTRADAS
 app.put('/menu/:id', async (req, res) => {
   const id = req.params.id;
-  const { nome_pizza, descricao_pizza, preco_pizza,image_pizza } = req.body; // Supondo que esses são os dados a serem atualizados
+  const { nome_pizza, descricao_pizza, preco_pizza, image_pizza } = req.body; // Supondo que esses são os dados a serem atualizados
 
   try {
     const client = await pool.connect();
-    const result = await client.query('UPDATE produto SET nome_pizza=$1,image_pizza=$2,descricao_pizza=$3, preco_pizza=$4 WHERE id_pizza=$5', [nome_pizza,image_pizza, descricao_pizza, preco_pizza, id]);
+    const result = await client.query('UPDATE produto SET nome_pizza=$1,image_pizza=$2,descricao_pizza=$3, preco_pizza=$4 WHERE id_pizza=$5', [nome_pizza, image_pizza, descricao_pizza, preco_pizza, id]);
     client.release();
 
     if (result.rowCount === 1) {
-      res.status(200).json({ message: 'Pizza editada com sucesso!' }); 
+      res.status(200).json({ message: 'Pizza editada com sucesso!' });
     } else {
-      res.status(404).json({ message: 'Pizza não encontrada' }); 
+      res.status(404).json({ message: 'Pizza não encontrada' });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: 'Erro ao editar pizza' }); 
+    res.status(500).json({ message: 'Erro ao editar pizza' });
   }
 });
 
@@ -107,7 +107,7 @@ app.post('/menu', async (req, res) => {
 
 //ROTA PARA DELETAR PIZZAS
 app.delete('/menu/:id', (req, res) => {
-  const id = req.params.id; 
+  const id = req.params.id;
 
   const query = 'DELETE FROM produto WHERE id_pizza = $1'
 
@@ -117,10 +117,10 @@ app.delete('/menu/:id', (req, res) => {
       res.status(500).json({ error: 'Erro interno ao excluir pizza.' });
     } else {
       if (result.rowCount > 0) {
-       
+
         res.status(200).json({ message: 'Pizza excluída com sucesso!' });
       } else {
-     
+
         res.status(404).json({ error: 'Pizza não encontrada.' });
       }
     }
@@ -159,7 +159,37 @@ app.post('/loginFunc', async (req, res) => {
     res.status(500).send('Erro interno do servidor');
   }
 });
- //GET PARA PEGAR OS CLIENTES CADASTRADOS
+
+//ROTA PARA CADASTRAR NOVOS CLIENTES
+app.post('/cadastroCliente', async (req, res) => {
+  const { nome_cliente, email_cliente, endereco_cliente, telefone_cliente, senha_cliente } = req.body;
+  const client = await pool.connect();
+  
+  try {
+    // Verificar se o email já está cadastrado
+    const clienteExistente = await client.query('SELECT * FROM clientes WHERE email_cliente = $1', [email_cliente]);
+    
+    if (clienteExistente.rows.length > 0) {
+      return res.status(400).json({ message: 'Email já cadastrado' });
+    }
+    
+    // Inserir novo cliente no banco de dados
+    const novoCliente = await client.query(
+      'INSERT INTO clientes (nome_cliente, email_cliente, endereco_cliente, telefone_cliente, senha_cliente) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+      [nome_cliente, email_cliente, endereco_cliente, telefone_cliente, senha_cliente]
+    );
+
+    res.status(201).json({ message: 'Cliente cadastrado com sucesso', cliente: novoCliente.rows[0] });
+  } catch (error) {
+    console.error('Error during client registration:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  } finally {
+    client.release(); 
+  }
+});
+
+
+//GET PARA PEGAR OS CLIENTES CADASTRADOS
 app.get('/loginCliente', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -177,44 +207,21 @@ app.post('/loginCliente', async (req, res) => {
   const { email, senha } = req.body;
 
   try {
-      const client = await pool.connect();
-      const result = await client.query('SELECT * FROM clientes WHERE email_cliente = $1 AND senha_cliente = $2', [email, senha]);
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM clientes WHERE email_cliente = $1 AND senha_cliente = $2', [email, senha]);
 
-      if (result.rows.length === 1) {
-          res.status(200).json({ message: 'Login Autorizado', cliente: cliente.rows[0] });
-      } else {
-          res.status(401).json({ message: 'Credenciais Invalidas' });
-      }
+    if (result.rows.length === 1) {
+      res.status(200).json({ message: 'Login Autorizado', cliente: cliente.rows[0] });
+    } else {
+      res.status(401).json({ message: 'Credenciais Invalidas' });
+    }
   } catch (error) {
-      console.error('Error during login:', error);
-      res.status(500).json({ message: 'Internal server error' });
+    console.error('Error during login:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 
-//ROTA PARA CADASTRAR NOVOS CLIENTES
-app.post('/cadastro-cliente', async (req, res) => {
-  const { nome, email, endereco, telefone, senha } = req.body;
 
-  try {
-      // Verificar se o email já está cadastrado
-      const clienteExistente = await pool.query('SELECT * FROM clientes WHERE email_cliente = $1', [email]);
-
-      if (clienteExistente.rows.length > 0) {
-          return res.status(400).json({ message: 'Email já cadastrado' });
-      }
-
-      // Inserir novo cliente no banco de dados
-      const novoCliente = await pool.query(
-          'INSERT INTO clientes (nome_cliente, email_cliente, endereco_cliente, telefone_cliente, senha_cliente) VALUES ($1, $2, $3, $4, $5) RETURNING *',
-          [nome, email, endereco, telefone, senha]
-      );
-
-      res.status(201).json({ message: 'Cliente cadastrado com sucesso', cliente: novoCliente.rows[0] });
-  } catch (error) {
-      console.error('Error during client registration:', error);
-      res.status(500).json({ message: 'Internal server error' });
-  }
-});
 
 
 

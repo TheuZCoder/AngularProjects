@@ -7,7 +7,7 @@ export class Cliente {
     senha_cliente: string;
 
     constructor(id: number, nome: string = '', email: string = '', endereco: string = '', telefone: string = '', senha: string = '') {
-        this.id_cliente = id;
+        this.id_cliente =id;
         this.nome_cliente = nome;
         this.email_cliente = email;
         this.endereco_cliente = endereco;

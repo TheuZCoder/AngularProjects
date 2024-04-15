@@ -8,6 +8,7 @@ import { CadastroPizzasComponent } from './view/cadastro-pizzas/cadastro-pizzas.
 import { AuthGuard } from './servico/guard.service';
 import { EditarPizzasComponent } from './view/editar-pizzas/editar-pizzas.component';
 import { LoginClienteComponent } from './view/login-cliente/login-cliente.component';
+import { ClienteCadastroComponent } from './view/cliente-cadastro/cliente-cadastro.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'loginCliente',
     component: LoginClienteComponent
+  },
+  {
+    path: 'cadastroCliente',
+    component: ClienteCadastroComponent
   },
 
 ];
