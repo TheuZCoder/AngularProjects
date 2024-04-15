@@ -15,7 +15,6 @@ export class ClienteCadastroComponent {
 
   cadastroCliente(): void {
     if (this.cliente.nome_cliente && this.cliente.email_cliente && this.cliente.endereco_cliente && this.cliente.telefone_cliente && this.cliente.senha_cliente) {
-      console.log(this.cliente)
       this.clienteService.cadastrarCliente(this.cliente).subscribe(
         () => {
           this.router.navigate(['loginCliente']);
