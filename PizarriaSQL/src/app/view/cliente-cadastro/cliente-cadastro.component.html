@@ -1,27 +1,35 @@
-<div class="container">
-    <h2>Cadastro de Cliente</h2>
-    <form (ngSubmit)="cadastroCliente()" #clienteForm="ngForm">
-      <div class="form-group">
-        <label for="nomeCliente">Nome:</label>
-        <input type="text" id="nomeCliente" name="nomeCliente" [(ngModel)]="cliente.nome_cliente" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="emailCliente">Email:</label>
-        <input type="email" id="emailCliente" name="emailCliente" [(ngModel)]="cliente.email_cliente" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="enderecoCliente">Endereço:</label>
-        <input type="text" id="enderecoCliente" name="enderecoCliente" [(ngModel)]="cliente.endereco_cliente" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="telefoneCliente">Telefone:</label>
-        <input type="text" id="telefoneCliente" name="telefoneCliente" [(ngModel)]="cliente.telefone_cliente" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="senhaCliente">Senha:</label>
-        <input type="password" id="senhaCliente" name="senhaCliente" [(ngModel)]="cliente.senha_cliente" class="form-control" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
-    </form>
-  </div>
-  
+<div class="janela">
+
+    <div class="container">
+        <h2>Cadastro de Cliente</h2>
+        <form (ngSubmit)="cadastroCliente()" #clienteForm="ngForm">
+            <div class="form-group">
+                <label for="nomeCliente">Nome:</label>
+                <input type="text" id="nomeCliente" name="nomeCliente" [(ngModel)]="cliente.nome_cliente"
+                    class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="emailCliente">Email:</label>
+                <input type="email" id="emailCliente" name="emailCliente" [(ngModel)]="cliente.email_cliente"
+                    class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="enderecoCliente">Endereço:</label>
+                <input type="text" id="enderecoCliente" name="enderecoCliente" [(ngModel)]="cliente.endereco_cliente"
+                    class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="telefoneCliente">Telefone:</label>
+                <input type="text" id="telefoneCliente" name="telefoneCliente" [(ngModel)]="cliente.telefone_cliente"
+                    class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="senhaCliente">Senha:</label>
+                <input type="password" id="senhaCliente" name="senhaCliente" [(ngModel)]="cliente.senha_cliente"
+                    class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+
+</div>
