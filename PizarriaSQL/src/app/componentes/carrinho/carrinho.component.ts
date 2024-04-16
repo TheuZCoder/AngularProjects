@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produto } from 'src/app/model/pizza.model';
-import { CarrinhoService } from 'src/app/servico/carrinho.service';
-import { LoginClienteService } from 'src/app/servico/login-cliente.service';
-import { PizzaService } from 'src/app/servico/pizza.service';
+import { CarrinhoService } from 'src/app/service/carrinho.service';
+import { LoginClienteService } from 'src/app/service/login-cliente.service';
+import { PizzaService } from 'src/app/service/pizza.service';
 
 @Component({
   selector: 'app-carrinho',

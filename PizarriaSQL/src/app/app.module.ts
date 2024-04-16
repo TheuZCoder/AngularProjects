@@ -15,7 +15,7 @@ import { CadastroPizzasComponent } from './view/cadastro-pizzas/cadastro-pizzas.
 import { EditarPizzasComponent } from './view/editar-pizzas/editar-pizzas.component';
 import { LoginClienteComponent } from './view/login-cliente/login-cliente.component';
 import { ClienteCadastroComponent } from './view/cliente-cadastro/cliente-cadastro.component';
-import { LoginClienteService } from './servico/login-cliente.service';
+import { LoginClienteService } from './service/login-cliente.service';
 
 @NgModule({
   declarations: [
@@ -32,13 +32,13 @@ import { LoginClienteService } from './servico/login-cliente.service';
     ClienteCadastroComponent,
   ],
   imports: [
-    
+
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
-    
+
   ],
   providers: [LoginClienteService],
   bootstrap: [AppComponent]

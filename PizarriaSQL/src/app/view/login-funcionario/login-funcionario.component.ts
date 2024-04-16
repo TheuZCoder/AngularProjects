@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoginFuncionarioService } from 'src/app/servico/login-funcionario-service.service';
+import { LoginFuncionarioService } from 'src/app/service/login-funcionario-service.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 

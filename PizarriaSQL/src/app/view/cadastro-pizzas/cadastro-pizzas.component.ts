@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PizzaService } from '../../servico/pizza.service';
+import { PizzaService } from '../../service/pizza.service';
 import { Produto } from '../../model/pizza.model';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ export class CadastroPizzasComponent implements OnInit {
   produtosAll: Produto[] = [];
   produto: Produto = new Produto(0, '', '', '', 0); // Instância vazia da classe Pizza para o formulário
   mensagem: string = ''; // Mensagem para exibir após o cadastro
- 
+
 
   constructor(private pizzaService: PizzaService, private router: Router) { }
 
@@ -63,5 +63,5 @@ export class CadastroPizzasComponent implements OnInit {
     this.router.navigate(['editarPizzas', pizza.id_pizza]);
   }
 
- 
+
 }

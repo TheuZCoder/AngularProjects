@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginClienteService } from 'src/app/servico/login-cliente.service';
+import { LoginClienteService } from 'src/app/service/login-cliente.service';
 
 @Component({
   selector: 'app-login-cliente',

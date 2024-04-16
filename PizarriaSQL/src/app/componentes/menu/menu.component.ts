@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Produto } from 'src/app/model/pizza.model';
-import { PizzaService } from 'src/app/servico/pizza.service';
-import { CarrinhoService } from 'src/app/servico/carrinho.service';
+import { PizzaService } from 'src/app/service/pizza.service';
+import { CarrinhoService } from 'src/app/service/carrinho.service';
 
 @Component({
   selector: 'app-menu',

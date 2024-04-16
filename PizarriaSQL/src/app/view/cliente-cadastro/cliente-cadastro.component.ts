@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/model/cliente.model';
-import { CadastroClienteService } from 'src/app/servico/cadastro-cliente.service';
+import { CadastroClienteService } from 'src/app/service/cadastro-cliente.service';
 
 @Component({
   selector: 'app-cliente-cadastro',
@@ -9,7 +9,7 @@ import { CadastroClienteService } from 'src/app/servico/cadastro-cliente.service
   styleUrls: ['./cliente-cadastro.component.css']
 })
 export class ClienteCadastroComponent {
-  cliente: Cliente = new Cliente(0,'','','','',''); 
+  cliente: Cliente = new Cliente(0,'','','','','');
 
   constructor(private clienteService: CadastroClienteService,private router: Router,) {}
 
