@@ -12,7 +12,6 @@ export class LoginFuncionarioService {
 
 
   private apiUrl = 'http://localhost:3000/loginFunc';
-
   public isLoggedIn = false;
 
 
@@ -42,6 +41,6 @@ export class LoginFuncionarioService {
   logoutUser(): void {
     this.isLoggedIn = false; // Define isAuthenticated como false ao fazer logout
   }
-  
+
 
 }

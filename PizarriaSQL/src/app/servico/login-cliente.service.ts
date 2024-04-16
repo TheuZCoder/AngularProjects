@@ -12,10 +12,9 @@ export class LoginClienteService {
 
 
   private apiUrl = 'http://localhost:3000/loginCliente';
-
   public isLoggedIn = false;
 
-  
+
   getUsers(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.apiUrl);
   }
@@ -41,5 +40,5 @@ export class LoginClienteService {
   logoutUser(): void {
     this.isLoggedIn = false; // Define isAuthenticated como false ao fazer logout
   }
-  
+
 }
