@@ -41,4 +41,12 @@ export class CarrinhoService {
   removerDoCarrinho(index: number): void {
     this.removerPizza(index);
   }
+
+  getProdutosCarrinho(): Produto[] {
+    return this.produtos;
+  }
+
+  limparCarrinho(): void {
+    this.produtos = [];
+  }
 }

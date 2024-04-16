@@ -14,31 +14,39 @@ import { PedidoService } from 'src/app/service/pedido.service';
 })
 export class CompraProdutoComponent implements OnInit {
   clienteLogado: Cliente | null = null;
+  produtosCarrinho: Produto[] = [];
+  totalCompra: number = 0;
 
-  constructor(private loginClienteService: LoginClienteService) {}
+  constructor(
+    private carrinhoService: CarrinhoService,
+    private loginClienteService: LoginClienteService
+  ) {}
 
   ngOnInit(): void {
-    this.obterClienteLogado();
-  }
+    this.produtosCarrinho = this.carrinhoService.getProdutosCarrinho();
 
-  obterClienteLogado(): void {
-    this.loginClienteService.getClienteLogado().subscribe(
-      (cliente: Cliente | null) => {
+    this.loginClienteService.getClienteLogado().subscribe({
+      next: (cliente: Cliente | null) => {
         this.clienteLogado = cliente;
       },
-      (error) => {
+      error: (error) => {
         console.error('Erro ao obter cliente logado:', error);
-      }
+      },
+    });
+    this.produtosCarrinho = this.carrinhoService.getProdutosCarrinho();
+    this.calcularTotalCompra();
+  }
+
+  calcularTotalCompra(): void {
+    this.totalCompra = this.produtosCarrinho.reduce(
+      (total, produto) => total + produto.preco_pizza,
+      0
     );
   }
 
-  comprarProdutos(): void {
-    // Lógica para comprar produtos com base no cliente logado
-    if (this.clienteLogado) {
-      console.log('Cliente logado:', this.clienteLogado);
-      // Aqui você pode implementar a lógica para realizar a compra
-    } else {
-      console.warn('Nenhum cliente logado.');
-    }
+  finalizarCompra(): void {
+    // Lógica para finalizar a compra
+    console.log('Compra finalizada!');
+    this.carrinhoService.limparCarrinho();
   }
 }
