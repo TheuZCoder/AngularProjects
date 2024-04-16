@@ -16,6 +16,7 @@ import { EditarPizzasComponent } from './view/editar-pizzas/editar-pizzas.compon
 import { LoginClienteComponent } from './view/login-cliente/login-cliente.component';
 import { ClienteCadastroComponent } from './view/cliente-cadastro/cliente-cadastro.component';
 import { LoginClienteService } from './service/login-cliente.service';
+import { CompraProdutoComponent } from './view/compra-produto/compra-produto.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { LoginClienteService } from './service/login-cliente.service';
     EditarPizzasComponent,
     LoginClienteComponent,
     ClienteCadastroComponent,
+    CompraProdutoComponent,
   ],
   imports: [
 

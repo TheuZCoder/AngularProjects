@@ -9,40 +9,44 @@ import { AuthGuard } from './service/guard.service';
 import { EditarPizzasComponent } from './view/editar-pizzas/editar-pizzas.component';
 import { LoginClienteComponent } from './view/login-cliente/login-cliente.component';
 import { ClienteCadastroComponent } from './view/cliente-cadastro/cliente-cadastro.component';
+import { CompraProdutoComponent } from './view/compra-produto/compra-produto.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'menu',
-    component: MenuComponent
+    component: MenuComponent,
   },
   {
     path: 'loginFunc',
-    component: LoginFuncionarioComponent
+    component: LoginFuncionarioComponent,
   },
   {
     path: 'cadastroPizzas',
     component: CadastroPizzasComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'editarPizzas/:id',
     component: EditarPizzasComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'loginCliente',
-    component: LoginClienteComponent
+    component: LoginClienteComponent,
   },
   {
     path: 'cadastroCliente',
-    component: ClienteCadastroComponent
+    component: ClienteCadastroComponent,
   },
-
+  {
+    path: 'compraProduto',
+    component: CompraProdutoComponent,
+  },
 ];
 
 @NgModule({

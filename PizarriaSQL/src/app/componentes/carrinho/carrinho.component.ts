@@ -12,7 +12,7 @@ import { PizzaService } from 'src/app/service/pizza.service';
 })
 export class CarrinhoComponent {
   produtos: Produto[] = [];
-  carrinho: Produto[] = [];
+  
 
   constructor(private pizzaService: PizzaService, public carrinhoService: CarrinhoService, private router: Router, private LoginCliente: LoginClienteService) { }
 
@@ -47,7 +47,8 @@ export class CarrinhoComponent {
 
     if (usuarioLogado) {
       // Lógica para realizar a compra
-      this.LoginCliente.isAuthenticated();
+      this.LoginCliente.isAuthenticated()
+      this.router.navigate(['/compraProduto']);
     } else {
       // Redirecionar para a tela de login
       this.router.navigate(['/loginCliente']);
