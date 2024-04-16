@@ -127,6 +127,7 @@ app.delete('/menu/:id', (req, res) => {
   });
 });
 
+//ROTA PARA PEGAR TODOS OS FUNCIONARIOS CADASTRADOS
 app.get('/loginFunc', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -139,7 +140,7 @@ app.get('/loginFunc', async (req, res) => {
   }
 });
 
-// Rota apenas para o método POST
+// ROTA PARA PEGAR FUNCIONARIO NO BANCO E COMPARAR COM AO COLOCADO NO LOGIN PARA PERMITIR LOGIN
 app.post('/loginFunc', async (req, res) => {
   const { nome_atendente, senha_atendente } = req.body;
 
@@ -164,15 +165,15 @@ app.post('/loginFunc', async (req, res) => {
 app.post('/cadastroCliente', async (req, res) => {
   const { nome_cliente, email_cliente, endereco_cliente, telefone_cliente, senha_cliente } = req.body;
   const client = await pool.connect();
-  
+
   try {
     // Verificar se o email já está cadastrado
     const clienteExistente = await client.query('SELECT * FROM clientes WHERE email_cliente = $1', [email_cliente]);
-    
+
     if (clienteExistente.rows.length > 0) {
       return res.status(400).json({ message: 'Email já cadastrado' });
     }
-    
+
     // Inserir novo cliente no banco de dados
     const novoCliente = await client.query(
       'INSERT INTO clientes (nome_cliente, email_cliente, endereco_cliente, telefone_cliente, senha_cliente) VALUES ($1, $2, $3, $4, $5) RETURNING *',
@@ -184,7 +185,7 @@ app.post('/cadastroCliente', async (req, res) => {
     console.error('Error during client registration:', error);
     res.status(500).json({ message: 'Internal server error' });
   } finally {
-    client.release(); 
+    client.release();
   }
 });
 
@@ -202,7 +203,7 @@ app.get('/loginCliente', async (req, res) => {
   }
 });
 
-//ROTA PARA LOGIN DE CLIENTES 
+//ROTA PARA LOGIN DE CLIENTES
 app.post('/loginCliente', async (req, res) => {
   const { email, senha } = req.body;
 
