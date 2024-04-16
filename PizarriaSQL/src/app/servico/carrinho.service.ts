@@ -1,25 +1,44 @@
 import { Injectable } from '@angular/core';
-import { Produto, Carrinho } from '../model/pizza.model';
+import { Produto} from '../model/pizza.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CarrinhoService {
-  carrinho: Carrinho = new Carrinho();
+  produtos: Produto[] = [];
+  total: number = 0;
   mostrar: boolean = false;
 
-  adicionarAoCarrinho(produto: Produto): void {
-    this.carrinho.adicionarPizza(produto);
-  }
-
-  removerDoCarrinho(index: number): void {
-    this.carrinho.removerPizza(index);
-  }
   mostrarCarrinho(): void {
     this.mostrar = true;
   }
 
   ocultarCarrinho(): void {
     this.mostrar = false;
+  }
+
+  adicionarPizza(produto: Produto): void {
+    this.produtos.push(produto);
+    this.calcularTotal();
+  }
+
+  removerPizza(index: number): void {
+    this.produtos.splice(index, 1);
+    this.calcularTotal();
+  }
+
+  calcularTotal(): void {
+    this.total = this.produtos.reduce(
+      (acc, produtos) => acc + produtos.preco_pizza,
+      0
+    );
+  }
+
+  adicionarAoCarrinho(produto: Produto): void {
+    this.adicionarPizza(produto);
+  }
+
+  removerDoCarrinho(index: number): void {
+    this.removerPizza(index);
   }
 }

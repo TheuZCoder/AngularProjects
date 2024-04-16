@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.isAuthenticated()) {
       return true; // Permite acesso à rota
     } else {
-      this.router.navigateByUrl('loginFunc'); // Redireciona para a página de login
+     
       return false; // Bloqueia o acesso à rota
     }
   }
