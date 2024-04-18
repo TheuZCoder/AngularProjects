@@ -13,6 +13,7 @@
 
     <div *ngIf="showLogin" class="login">
         <h1>Login de Vendedores</h1>
+        <p class="error-p">{{authError}}</p>
         <form #sellerLogin="ngForm" (ngSubmit)="login(sellerLogin.value)" class="comom-form">
             <input class="form-input" type="text" ngModel name="email" placeholder="Digite seu Email"/>
             <input class="form-input" type="password" ngModel name="password" placeholder="Digite sua Senha"/>

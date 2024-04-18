@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree, CanActivateFn } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SellerService } from 'src/app/services/seller.service';
 
@@ -8,19 +8,16 @@ import { SellerService } from 'src/app/services/seller.service';
 })
 export class AuthGuard implements CanActivate {
   constructor(
-    private router: Router,
     private SellerService: SellerService
-  ) {}
+  ) { }
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean | UrlTree {
-    
+  canActivate(route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<Boolean |  UrlTree > {
+
     if (localStorage.getItem('seller')) {
-      this.SellerService.isSellerLoggedIn.next(true);
-      return this.router.parseUrl('/seller-home');
+      return true;
     }
-    
-    return false;
+
+    return this.SellerService.isSellerLoggedIn;
   }
 }
