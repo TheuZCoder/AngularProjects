@@ -10,7 +10,7 @@ import { SignUp } from 'src/app/data-types';
 })
 export class SellerAuthComponent implements OnInit{
 
-  constructor(private seller:SellerService){}
+  constructor(private seller:SellerService,){}
   
   showLogin = false
 
@@ -22,6 +22,10 @@ export class SellerAuthComponent implements OnInit{
     this.seller.userSignUp(data)
   }
   openLogin(){
+    this.showLogin = true
+  }
 
+  openSignUp(){
+    this.showLogin = false
   }
 }

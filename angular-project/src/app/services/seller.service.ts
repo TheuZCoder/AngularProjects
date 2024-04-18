@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class SellerService {
+  
   isSellerLoggedIn = new BehaviorSubject<boolean>(false)
 
   constructor(private http:HttpClient, private router: Router) { }

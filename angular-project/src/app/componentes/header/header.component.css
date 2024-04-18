@@ -3,7 +3,7 @@
     justify-content: space-between;
 }
 .nav h1 {
-    color: aliceblue;
+    color: rgb(0, 0, 0);
     margin: 0;
     font-size: 40px;
 }
@@ -19,7 +19,7 @@
 }
 .nav li a {
     text-decoration: none;
-    color: aliceblue;
+    color: rgb(0, 0, 0);
 }
 .nav .nav-search  {
     margin-top: 5px;
@@ -30,14 +30,14 @@
 }
 .nav .nav-search input {
     flex: 1;
-    color: aliceblue;
-    border: 1px solid aliceblue;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
     height: 35px;
     border-right: 0px;
 }
 .nav .nav-search button {
-    color: aliceblue;
-    border: 1.5px solid aliceblue;
+    color: rgb(0, 0, 0);
+    border: 1.5px solid rgb(0, 0, 0);
     height: 39px;
     border-left: 0px;
 }
