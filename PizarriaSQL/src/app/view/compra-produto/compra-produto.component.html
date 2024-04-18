@@ -1,23 +1,26 @@
-<div class="container">
-  <h1>Resumo da Compra</h1>
+<div class="containerExterno">
 
-  <div *ngIf="clienteLogado">
-    <h3>Dados do Cliente</h3>
-    <p>Nome: {{ clienteLogado.nome_cliente }}</p>
-    <p>Telefone: {{ clienteLogado.telefone_cliente }}</p>
-    <p>Endereço: {{ clienteLogado.endereco_cliente }}</p>
+  <div class="container">
+    <h1>Resumo da Compra</h1>
+
+    <div *ngIf="clienteLogado">
+      <h3>Dados do Cliente</h3>
+      <p>Nome: {{ clienteLogado.nome_cliente }}</p>
+      <p>Telefone: {{ clienteLogado.telefone_cliente }}</p>
+      <p>Endereço: {{ clienteLogado.endereco_cliente }}</p>
+    </div>
+
+    <hr>
+
+    <h3>Produtos no Carrinho</h3>
+    <div *ngFor="let produto of produtosCarrinho">
+      <p>{{ produto.nome_pizza }} - R$ {{ produto.preco_pizza }}</p>
+    </div>
+
+    <hr>
+
+    <p>Total: R$ {{ totalCompra }}</p>
+
+    <button (click)="finalizarCompra()">Finalizar Compra</button>
   </div>
-
-  <hr>
-
-  <h3>Produtos no Carrinho</h3>
-  <div *ngFor="let produto of produtosCarrinho">
-    <p>{{ produto.nome_pizza }} - R$ {{ produto.preco_pizza }}</p>
-  </div>
-
-  <hr>
-
-  <p>Total: R$ {{ totalCompra }}</p>
-
-  <button (click)="finalizarCompra()">Finalizar Compra</button>
 </div>

@@ -1,0 +1,57 @@
+.containerExterno{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.container h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.container hr {
+  margin: 20px 0;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+.container h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.container p {
+  margin-bottom: 5px;
+}
+
+.container button {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #ff7300;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.container button:hover {
+  background-color: #ff4500;
+}
