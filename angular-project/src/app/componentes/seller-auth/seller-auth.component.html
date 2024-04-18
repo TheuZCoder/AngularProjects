@@ -6,18 +6,18 @@
             <input class="form-input" type="password" ngModel name="password" placeholder="Digite sua Senha"/>
             <input class="form-input" type="text" ngModel name="email" placeholder="Digite seu Email"/>
             <button class="form-button">Cadastrar</button>
-            <a (click)="openLogin()">Já esta cadastrado? - CLICK AQUI PARA ENTRAR</a>
+            <a class="auth-toggle-link" (click)="openLogin()">Já esta cadastrado? - CLICK AQUI PARA ENTRAR</a>
         </form>
     </div>
 
 
-    <div *ngIf="showLogin" class="sign-up">
-        <h1>Login</h1>
-        <form #sellerSignUp="ngForm" (ngSubmit)="signUp(sellerSignUp.value)" class="comom-form">
+    <div *ngIf="showLogin" class="login">
+        <h1>Login de Vendedores</h1>
+        <form #sellerLogin="ngForm" (ngSubmit)="login(sellerLogin.value)" class="comom-form">
             <input class="form-input" type="text" ngModel name="email" placeholder="Digite seu Email"/>
             <input class="form-input" type="password" ngModel name="password" placeholder="Digite sua Senha"/>
             <button class="form-button">Login</button>
-            <a (click)="openSignUp()">Não é cadastrado? - CLICK AQUI PARA ENTRAR</a>
+            <a class="auth-toggle-link" (click)="openSignUp()">Não é cadastrado? - CLICK AQUI PARA CADASTRAR</a>
         </form>
     </div>
 </div>

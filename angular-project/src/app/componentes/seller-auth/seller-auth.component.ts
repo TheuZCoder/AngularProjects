@@ -12,20 +12,31 @@ export class SellerAuthComponent implements OnInit{
 
   constructor(private seller:SellerService,){}
   
-  showLogin = false
+  showLogin = false;
+  authError:String = '';
 
   ngOnInit():void{
-    this.seller.reloadSeller()
+    this.seller.reloadSeller();
+  }
+  
+  signUp(data:SignUp):void{
+    this.seller.userSignUp(data);
+  }
+  
+  login(data:SignUp):void{
+    this.seller.userLogin(data);
+    this.seller.isLoginError.subscribe((isError))=>{
+      if (isError) {
+        this.authError="EMAIL OU SENHA INVALIDOS"
+      }
+    }
   }
 
-  signUp(data:SignUp):void{
-    this.seller.userSignUp(data)
-  }
   openLogin(){
-    this.showLogin = true
+    this.showLogin = true;
   }
 
   openSignUp(){
-    this.showLogin = false
+    this.showLogin = false;
   }
 }
