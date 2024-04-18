@@ -14,12 +14,12 @@
 
     <h3>Produtos no Carrinho</h3>
     <div *ngFor="let produto of produtosCarrinho">
-      <p>{{ produto.nome_pizza }} - R$ {{ produto.preco_pizza }}</p>
+      <p>{{ produto.nome_pizza }} - R$ {{ produto.preco_pizza.toFixed(2).replace('.', ',') }}</p>
     </div>
 
     <hr>
 
-    <p>Total: R$ {{ totalCompra }}</p>
+    <p>Total: R$ {{ totalCompra.toFixed(2).replace('.', ',') }}</p>
 
     <button (click)="finalizarCompra()">Finalizar Compra</button>
   </div>

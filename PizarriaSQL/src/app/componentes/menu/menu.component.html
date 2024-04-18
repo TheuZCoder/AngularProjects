@@ -12,7 +12,7 @@
                 <img [src]="produto.image_pizza" alt="{{ produto.nome_pizza }}">
                 <h3>{{ produto.nome_pizza }}</h3>
                 <p>{{ produto.descricao_pizza }}</p>
-                <p>Preço: R$ {{ produto.preco_pizza}}</p>
+                <p>Preço: R$ {{ produto.preco_pizza.toFixed(2).replace('.', ',')}}</p>
                 <button (click)="adicionarAoCarrinho(produto)">Adicionar ao Carrinho</button>
             </div>
         </div>
