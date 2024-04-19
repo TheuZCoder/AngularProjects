@@ -68,17 +68,17 @@
       </div>
     </div>
   </div>
-  <div class="container">
-    <h2>Pedidos dos Clientes</h2>
-    <ul>
-      <li *ngFor="let pedido of clientesPizzas">
-        <p>ID do Pedido: {{ pedido.id_pedido }}</p>
-        <p>Data do Pedido: {{ pedido.data_pedido }}</p>
-        <p>Status do Pedido: {{ pedido.status_pedido }}</p>
-        <p>Nome do Cliente: {{ pedido.nome_cliente }}</p>
-        <p>Nome da Pizza: {{ pedido.nome_pizza }}</p>
-        <p>Preço da Pizza: R$ {{ pedido.preco_pizza }}</p>
-      </li>
-    </ul>
-  </div>
+</div>
+<div class="container">
+  <h2>Pedidos dos Clientes</h2>
+  <ul>
+    <li *ngFor="let pedido of clientesPizzas">
+      <p>ID do Pedido: {{ pedido.id_pedido }}</p>
+      <p>Data do Pedido: {{ pedido.data_pedido }}</p>
+      <p>Status do Pedido: {{ pedido.status_pedido }}</p>
+      <p>Nome do Cliente: {{ pedido.nome_cliente }}</p>
+      <p>Pizzas Pedidas: {{ pedido.nome_pizzas }}</p>
+      <p>Total Preço Pedido: R$ {{ pedido.total_preco_pizzas }}</p>
+    </li>
+  </ul>
 </div>

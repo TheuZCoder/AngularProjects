@@ -277,13 +277,14 @@ app.get("/pedidos/cliente_pedido", async (req, res) => {
   try {
     const client = await pool.connect();
     const query = `
-      SELECT
+    SELECT
     Pedidos.id_pedido,
     Pedidos.data_pedido,
     Pedidos.status_pedido,
     Clientes.nome_cliente,
     ARRAY_AGG(Produto.nome_pizza) AS nome_pizzas,
-    ARRAY_AGG(Produto.preco_pizza) AS precos_pizzas
+    ARRAY_AGG(Produto.preco_pizza) AS precos_pizzas,
+    SUM(Produto.preco_pizza) AS total_preco_pizzas
     FROM Pedidos
     INNER JOIN Clientes ON Pedidos.id_cliente = Clientes.id_cliente
     INNER JOIN Produto ON Produto.id_pizza = ANY(Pedidos.id_pizza)
