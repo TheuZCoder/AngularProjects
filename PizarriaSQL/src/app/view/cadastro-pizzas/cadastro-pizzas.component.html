@@ -1,44 +1,84 @@
 <div class="container">
-    <h2>Cadastro de Pizza</h2>
-    <form (ngSubmit)="cadastrarPizza()">
-      <div class="form-group">
-        <label for="nomePizza">Nome da Pizza:</label>
-        <input type="text" id="nomePizza" name="nomePizza" [(ngModel)]="produto.nome_pizza" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="imagemPizza">Imagem da Pizza (URL):</label>
-        <input type="text" id="imagemPizza" name="imagemPizza" [(ngModel)]="produto.image_pizza" class="form-control" required>
-      </div>
-      <div class="form-group">
-        <label for="descricaoPizza">Descrição da Pizza:</label>
-        <textarea id="descricaoPizza" name="descricaoPizza" [(ngModel)]="produto.descricao_pizza" class="form-control" required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="precoPizza">Preço da Pizza:</label>
-        <input type="number" id="precoPizza" name="precoPizza" [(ngModel)]="produto.preco_pizza" class="form-control" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Cadastrar Pizza</button>
-    </form>
-    <div *ngIf="mensagem" class="alert alert-success">{{ mensagem }}</div>
-  </div>
-  
-  <div class="container">
-    <h1 class="edit-cardapio">Edição do Cardapio</h1>
-    <div class="pizza-list">
-
-        <div class="pizza-item" *ngFor="let produto of produtosAll">
-            <div class="container-item">
-                <img [src]="produto.image_pizza" alt="{{ produto.nome_pizza }}">
-                <h3>{{ produto.nome_pizza }}</h3>
-                <p>{{ produto.descricao_pizza }}</p>
-                <p>Preço: R$ {{ produto.preco_pizza}}</p>
-                
-                <button (click)="editarPizza(produto)" class="btn btn-danger">Editar</button>
-                <button (click)="excluirPizza(produto.id_pizza)" class="btn btn-danger">Excluir</button>
-            </div>
-        </div>
-
+  <h2>Cadastro de Pizza</h2>
+  <form (ngSubmit)="cadastrarPizza()">
+    <div class="form-group">
+      <label for="nomePizza">Nome da Pizza:</label>
+      <input
+        type="text"
+        id="nomePizza"
+        name="nomePizza"
+        [(ngModel)]="produto.nome_pizza"
+        class="form-control"
+        required
+      />
     </div>
+    <div class="form-group">
+      <label for="imagemPizza">Imagem da Pizza (URL):</label>
+      <input
+        type="text"
+        id="imagemPizza"
+        name="imagemPizza"
+        [(ngModel)]="produto.image_pizza"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="descricaoPizza">Descrição da Pizza:</label>
+      <textarea
+        id="descricaoPizza"
+        name="descricaoPizza"
+        [(ngModel)]="produto.descricao_pizza"
+        class="form-control"
+        required
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label for="precoPizza">Preço da Pizza:</label>
+      <input
+        type="number"
+        id="precoPizza"
+        name="precoPizza"
+        [(ngModel)]="produto.preco_pizza"
+        class="form-control"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar Pizza</button>
+  </form>
+  <div *ngIf="mensagem" class="alert alert-success">{{ mensagem }}</div>
 </div>
 
+<div class="container">
+  <h1 class="edit-cardapio">Edição do Cardapio</h1>
+  <div class="pizza-list">
+    <div class="pizza-item" *ngFor="let produto of produtosAll">
+      <div class="container-item">
+        <img [src]="produto.image_pizza" alt="{{ produto.nome_pizza }}" />
+        <h3>{{ produto.nome_pizza }}</h3>
+        <p>{{ produto.descricao_pizza }}</p>
+        <p>Preço: R$ {{ produto.preco_pizza }}</p>
 
+        <button (click)="editarPizza(produto)" class="btn btn-danger">
+          Editar
+        </button>
+        <button (click)="excluirPizza(produto.id_pizza)" class="btn btn-danger">
+          Excluir
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h2>Pedidos dos Clientes</h2>
+    <ul>
+      <li *ngFor="let pedido of clientesPizzas">
+        <p>ID do Pedido: {{ pedido.id_pedido }}</p>
+        <p>Data do Pedido: {{ pedido.data_pedido }}</p>
+        <p>Status do Pedido: {{ pedido.status_pedido }}</p>
+        <p>Nome do Cliente: {{ pedido.nome_cliente }}</p>
+        <p>Nome da Pizza: {{ pedido.nome_pizza }}</p>
+        <p>Preço da Pizza: R$ {{ pedido.preco_pizza }}</p>
+      </li>
+    </ul>
+  </div>
+</div>

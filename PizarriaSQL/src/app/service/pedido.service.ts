@@ -11,7 +11,6 @@ export class PedidoService {
 
   constructor(private http: HttpClient) {}
 
-  
   adicionarPedido(pedido: Pedido): Observable<Pedido> {
     return this.http.post<Pedido>(`${this.baseUrl}/cliente_pedido`, pedido);
   }
