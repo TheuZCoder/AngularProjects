@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PizzaService } from '../../service/pizza.service';
 import { Produto } from '../../model/pizza.model';
 import { Router } from '@angular/router';
+import { Pedido } from 'src/app/model/pedido.model';
+import { PedidoService } from 'src/app/service/pedido.service';
 
 @Component({
   selector: 'app-cadastro-pizzas',
@@ -12,12 +14,20 @@ export class CadastroPizzasComponent implements OnInit {
   produtosAll: Produto[] = [];
   produto: Produto = new Produto(0, '', '', '', 0); // Instância vazia da classe Pizza para o formulário
   mensagem: string = ''; // Mensagem para exibir após o cadastro
+  clientesPizzas: Pedido[] = [];
 
 
-  constructor(private pizzaService: PizzaService, private router: Router) { }
+  constructor(private pizzaService: PizzaService, private router: Router,private pedidoService: PedidoService) { }
 
   ngOnInit(): void {
     this.getPizzas();
+    this.getPedidosClientes();
+  }
+
+  getPedidosClientes(): void {
+    this.pedidoService.getPedidosClientes().subscribe((pedidos) => {
+      this.clientesPizzas = pedidos;
+    });
   }
 
   getPizzas(): void {
@@ -62,6 +72,4 @@ export class CadastroPizzasComponent implements OnInit {
   editarPizza(pizza: Produto): void {
     this.router.navigate(['editarPizzas', pizza.id_pizza]);
   }
-
-
 }

@@ -222,6 +222,26 @@ app.post('/loginCliente', async (req, res) => {
   }
 });
 
+// ROTA PARA CADASTRAR NOVOS PEDIDOS
+app.post('/pedidos/cliente_pedido', async (req, res) => {
+  const { id_cliente, data_pedido, status_pedido, nome_pedido, id_pizza } = req.body;
+
+  try {
+    const client = await pool.connect();
+    const result = await client.query(
+      'INSERT INTO Pedidos (id_cliente, data_pedido, status_pedido, nome_pedido, id_pizza) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+      [id_cliente, data_pedido, status_pedido, nome_pedido, id_pizza]
+    );
+    client.release();
+
+    const novoPedido = result.rows[0];
+    res.status(201).json(novoPedido);
+  } catch (error) {
+    console.error('Erro ao cadastrar pedido:', error);
+    res.status(500).json({ message: 'Erro interno do servidor' });
+  }
+});
+
 
 
 

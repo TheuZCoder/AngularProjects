@@ -11,7 +11,12 @@ export class PedidoService {
 
   constructor(private http: HttpClient) {}
 
-  realizarPedido(pedido: Pedido): Observable<any> {
-    return this.http.post<any>(this.baseUrl, pedido);
+  
+  adicionarPedido(pedido: Pedido): Observable<Pedido> {
+    return this.http.post<Pedido>(`${this.baseUrl}/cliente_pedido`, pedido);
+  }
+
+  getPedidosClientes(): Observable<Pedido[]> {
+    return this.http.get<Pedido[]>(`${this.baseUrl}/cliente_pedido`);
   }
 }

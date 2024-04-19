@@ -19,7 +19,9 @@ export class CompraProdutoComponent implements OnInit {
 
   constructor(
     private carrinhoService: CarrinhoService,
-    private loginClienteService: LoginClienteService
+    private loginClienteService: LoginClienteService,
+    private pedidoService: PedidoService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -45,8 +47,29 @@ export class CompraProdutoComponent implements OnInit {
   }
 
   finalizarCompra(): void {
-    // Lógica para finalizar a compra
+   
     console.log('Compra finalizada!');
-    this.carrinhoService.limparCarrinho();
+  
+    const pedido: Pedido = {
+      id_cliente: this.clienteLogado?.id_cliente || 0, 
+      id_pedido: 0, 
+      data_pedido: new Date(), 
+      status_pedido: 'Em processamento', 
+      nome_pedido: 'Pedido do Cliente', 
+      id_pizza: this.produtosCarrinho.map((produto) => produto.id_pizza), 
+    };
+  
+    // Chamar o serviço para adicionar o pedido
+    this.pedidoService.adicionarPedido(pedido).subscribe({
+      next: (pedidoAdicionado) => {
+        console.log('Pedido adicionado:', pedidoAdicionado);
+        this.carrinhoService.limparCarrinho();
+        alert('          Pedido em Preparo!! \n          Obrigado pela preferencia!!')
+        this.router.navigate([''])
+      },
+      error: (error) => {
+        console.error('Erro ao adicionar pedido:', error);
+      },
+    });
   }
 }

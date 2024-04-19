@@ -4,5 +4,6 @@ export interface Pedido {
   status_pedido: string;
   nome_pedido: string;
   id_cliente: number;
-  id_produto: number[];
+  id_pizza: number[];
 }
+
