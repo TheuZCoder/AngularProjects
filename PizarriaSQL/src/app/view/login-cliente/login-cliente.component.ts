@@ -20,7 +20,7 @@ export class LoginClienteComponent {
       .subscribe((autenticado: boolean) => {
         if (autenticado) {
           console.log('Usuário autenticado.');
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('compraProduto');
 
         } else {
           // Tratar erro de autenticação, exibindo uma mensagem de erro
