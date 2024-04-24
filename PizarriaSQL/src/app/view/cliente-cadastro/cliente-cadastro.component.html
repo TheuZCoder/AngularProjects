@@ -14,6 +14,11 @@
                     class="form-control" required>
             </div>
             <div class="form-group">
+                <label for="cepCliente">CEP:</label>
+                <input type="text" id="cepCliente" name="cepCliente" [(ngModel)]="cep"
+                    class="form-control" required (input)="buscarEnderecoPorCEP()">
+            </div>
+            <div class="form-group">
                 <label for="enderecoCliente">Endereço:</label>
                 <input type="text" id="enderecoCliente" name="enderecoCliente" [(ngModel)]="cliente.endereco_cliente"
                     class="form-control" required>
