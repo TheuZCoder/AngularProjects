@@ -287,9 +287,14 @@ app.get("/pedidos/cliente_pedido", async (req, res) => {
     SUM(Produto.preco_pizza) AS total_preco_pizzas
     FROM Pedidos
     INNER JOIN Clientes ON Pedidos.id_cliente = Clientes.id_cliente
-    INNER JOIN Produto ON Produto.id_pizza = ANY(Pedidos.id_pizza)
+    CROSS JOIN LATERAL (
+    SELECT id_pizza
+    FROM unnest(Pedidos.id_pizza) AS id_pizza
+    ) AS id_pizza_expanded
+    INNER JOIN Produto ON Produto.id_pizza = id_pizza_expanded.id_pizza
     WHERE Pedidos.id_pedido = Pedidos.id_pedido
     GROUP BY Pedidos.id_pedido, Pedidos.data_pedido, Pedidos.status_pedido, Clientes.nome_cliente;
+
 
     `;
     const result = await client.query(query);

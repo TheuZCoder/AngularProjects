@@ -7,8 +7,8 @@ export interface PedidoCliente {
   id_cliente: number;
   id_pizza: number[];
   nome_cliente?: string;
-  nome_pizzas?: string[]; // Array de nomes de pizzas
-  precos_pizzas?: number[]; // Array de preços de pizzas
+  nome_pizzas?: string[];
+  precos_pizzas?: number[];
   total_preco_pizzas?: number;
 }
 
