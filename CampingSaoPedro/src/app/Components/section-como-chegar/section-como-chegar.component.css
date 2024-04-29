@@ -7,8 +7,8 @@
 }
 
 .map-container,
-.video-container {
-    margin-bottom: 20px;
+.video-container {  
+    margin-bottom: 50px;
 }
 
 .video-container iframe {
