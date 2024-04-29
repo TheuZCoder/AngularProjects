@@ -1,0 +1,26 @@
+.footer-container {
+    background-color: rgb(236, 155, 88);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    max-width: 100px;
+    border-radius: 50%;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+.copyright p {
+    margin-top: 20px;
+    font-size: 14px;
+}
