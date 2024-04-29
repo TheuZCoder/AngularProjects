@@ -1,0 +1,44 @@
+.header-container {
+    background-color: rgb(236, 155, 88);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 100px; /* Tamanho máximo da logo */
+    margin-right: 20px; /* Espaçamento à direita da logo */
+    border-radius: 70%;
+}
+
+nav {
+    flex-grow: 1; /* Ocupa todo o espaço restante */
+    text-align: right; /* Alinha os links à direita */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-left: 20px; /* Espaçamento entre os links */
+}
+
+nav ul li:first-child {
+    margin-left: 0; /* Remove o espaçamento do primeiro link */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: rgb(0, 0, 0); /* Laranja ao passar o mouse */
+}
