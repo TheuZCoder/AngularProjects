@@ -4,7 +4,7 @@ const bodyParser = require("body-parser"); // Importe o body-parser aqui
 const cors = require("cors");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 4000;
 
 // Configurar o CORS para permitir todas as origens
 app.use(cors());
