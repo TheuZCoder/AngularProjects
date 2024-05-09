@@ -14,12 +14,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "pizzaria_ta",
-  password: "postgres",
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
 });
+
 
 pool.connect((err, client, release) => {
   if (err) {
