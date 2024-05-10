@@ -1,4 +1,3 @@
-User;
 const express = require("express");
 const { Pool } = require("pg");
 const bodyParser = require("body-parser"); // Importe o body-parser aqui
