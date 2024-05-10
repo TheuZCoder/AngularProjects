@@ -1,7 +1,8 @@
 const express = require("express");
+const { Pool } = require("pg");
+
 const bodyParser = require("body-parser"); // Importe o body-parser aqui
 const cors = require("cors");
-const { Pool } = pg;
 
 const app = express();
 const port = 3000;
