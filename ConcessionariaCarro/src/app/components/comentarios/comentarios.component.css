@@ -19,7 +19,10 @@
     color: #333;
     margin-bottom: 40px;
 }
-
+.testimonial-card{
+    width: 100%;
+    max-width: 500px;
+}
 
 
 .testimonial-card p {
