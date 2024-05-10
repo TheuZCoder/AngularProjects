@@ -1,10 +1,11 @@
+User;
 const express = require("express");
 const { Pool } = require("pg");
 const bodyParser = require("body-parser"); // Importe o body-parser aqui
 const cors = require("cors");
 
 const app = express();
-const port = process.env.PORT || 4000;
+const port = 3000;
 
 // Configurar o CORS para permitir todas as origens
 app.use(cors());
@@ -14,9 +15,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  user: "postgres",
+  host: "localhost",
+  database: "pizzaria_ta",
+  password: "postgres",
+  port: 5432,
 });
-
 
 pool.connect((err, client, release) => {
   if (err) {
