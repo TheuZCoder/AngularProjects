@@ -1,0 +1,46 @@
+.banner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 400px; /* Altura ajustável conforme sua preferência */
+    background-color: #f2f2f2; /* Cor de fundo do banner */
+}
+
+.banner img {
+    width: 100%;
+    height: 100%; /* Altere para 'auto' se preferir manter a proporção original */
+    object-fit: cover;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #000000; /* Cor do texto */
+}
+
+.banner-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.banner-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.banner-text .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Cor do botão */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.banner-text .btn:hover {
+    background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}

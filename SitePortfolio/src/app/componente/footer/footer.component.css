@@ -1,0 +1,12 @@
+footer {
+    position: fixed; /* Fixar o footer */
+    bottom: 0; /* Alinhar no final da página */
+    left: 0; /* Alinhar à esquerda */
+    width: 100%; /* Largura total */
+    background-color: #236579; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    padding: 5px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    border-top: 1px solid #ccc; /* Borda superior */
+    border-radius: 0 0 10px 10px; /* Bordas arredondadas */
+}

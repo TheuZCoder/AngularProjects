@@ -1,0 +1,13 @@
+<section class="testimonials">
+    <div class="container">
+        <h2>Depoimentos de Clientes</h2>
+        <div class="testimonial-list">
+            @for (comentario of Comentarios; track comentario){
+                <div class="testimonial-card">
+                    <p>{{ comentario.text }}</p>
+                    <p class="author">- {{ comentario.author }}</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
