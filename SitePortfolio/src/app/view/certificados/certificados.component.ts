@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 export class CertificadosComponent {
   certificados: Certificado[] = [
     {
-      nome: 'Fundamento Desenvolvimento de Software',
+      nome: 'Fundamentos Desenvolvimento de Software',
       imagemUrl: 'assets/img/microsoft.jpg',
     },
     {
