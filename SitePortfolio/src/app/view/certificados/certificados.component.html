@@ -1,1 +1,14 @@
-<p>certificados works!</p>
+<div class="container">
+  <header>
+    <h1>Certificados</h1>
+    <input type="text" (input)="search($event)" placeholder="Pesquisar por nome">
+  </header>
+  <div class="flex">
+    <div class="img-port" *ngFor="let certificado of certificadosFiltrados"
+      [style.background-image]="'url(' + certificado.imagemUrl + ')'">
+      <a [href]="certificado.imagemUrl" target="_blank">
+        <div class="overlay">{{ certificado.nome }}</div>
+      </a>
+    </div>
+  </div>
+</div>

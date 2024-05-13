@@ -10,6 +10,7 @@ import { CertificadosComponent } from './view/certificados/certificados.componen
 import { ProjetosComponent } from './view/projetos/projetos.component';
 import { SobreMimComponent } from './view/sobre-mim/sobre-mim.component';
 import { ContatoComponent } from './view/contato/contato.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ContatoComponent } from './view/contato/contato.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
