@@ -45,6 +45,14 @@ h1 {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
+  border-color: black;
+  border: 0.5px solid black;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.img-port:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 
 .img-port:hover .overlay {
