@@ -27,3 +27,21 @@
 .img-sobre img{
   border-radius: 20px;
 }
+
+.sobre .txt-sobre .btn-social button{
+  justify-content: center;
+  align-self: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  border: none;
+  background-color: #236579;
+  font-size: 25px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+.sobre .txt-sobre .btn-social button:hover{
+  background-color: #1a4c5a;
+  box-shadow: 0px 0px 8px 0px #1a4c5a;
+  transform: scale(1.05);
+}
