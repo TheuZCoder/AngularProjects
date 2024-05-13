@@ -1,65 +1,29 @@
-section.topo-do-site{
-  padding: 40px 4%;
-  margin-top: 9%;
-}
-.flex{
+.flex {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 90px;
+  gap: 60px;
 }
-
-.topo-do-site h1{
-  color: black;
-  font-size: 42px;
+.sobre {
+  padding: 40px 4%;
+}
+.sobre .txt-sobre h2{
+  font-size: 40px;
   line-height: 40px;
+  margin-bottom: 30px;
 }
-
-.topo-do-site h1 span{
+.sobre .txt-sobre h2 span {
   color: #236579;
+  display: block;
 }
-.topo-do-site p{
-  color: black;
-  margin: 40px 0;
+.sobre .txt-sobre p {
+  margin: 20px 0;
+  text-align: justify;
 }
-
-.btn-contato{
-  padding: 10px 40px;
-  font-size: 18px;
-  font-weight: 600;
-  background-color: #236579;
-  border: 0;
-  border-radius: 30px;
-  cursor: pointer;
-  color: white;
-  box-shadow: 0px 0px 8px 0px #236579;
-  text-decoration: none;
-  transition: .2s;
-  display: inline-block;
+.btn-social img{
+  width: 30px;
+  margin: 0 10px;
 }
-.btn-contato a{
-  text-decoration: none;
-  color: white;
-}
-
-.btn-contato:hover{
-  background-color: #1a4c5a;
-  box-shadow: 0px 0px 8px 0px #1a4c5a;
-  transform: scale(1.1);
-  text-decoration: none;
-}
-
-.topo-do-site .img-topo-site img{
-  position: relative;
-  animation: flutuar 2s ease-in-out infinite alternate;
-  border-radius: 120px;
-}
-
-@keyframes flutuar {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: 30px;
-  }
+.img-sobre img{
+  border-radius: 20px;
 }
