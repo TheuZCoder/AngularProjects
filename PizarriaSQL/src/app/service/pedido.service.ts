@@ -7,7 +7,7 @@ import { Pedido } from '../model/pedido.model';
   providedIn: 'root',
 })
 export class PedidoService {
-  private baseUrl = 'http://localhost:3000/pedidos';
+  private baseUrl = 'https://api-node-sigma.vercel.app/pedidos';
 
   constructor(private http: HttpClient) {}
 

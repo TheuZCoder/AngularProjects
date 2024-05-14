@@ -9,7 +9,7 @@ import { Observable, catchError, map, of, switchMap } from 'rxjs';
 export class LoginClienteService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl = 'http://localhost:3000/loginCliente';
+  private apiUrl = 'https://api-node-sigma.vercel.app/loginCliente';
   public isLoggedIn = false;
   public clienteLogado: Cliente | null = null; // Adicionando a propriedade clienteLogado
 

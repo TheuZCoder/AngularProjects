@@ -7,7 +7,7 @@ import { Produto } from '../model/pizza.model';
   providedIn: 'root',
 })
 export class PizzaService {
-  private baseUrl = 'http://localhost:3000/menu';
+  private baseUrl = 'https://api-node-sigma.vercel.app/menu';
 
   constructor(private http: HttpClient) {}
 
@@ -22,7 +22,6 @@ export class PizzaService {
     );
   }
 
-
   getPizzaPorId(id: number): Observable<Produto> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<Produto>(url);
@@ -31,7 +30,7 @@ export class PizzaService {
   cadastrarPizza(pizza: Produto): Observable<any> {
     return this.http.post<any>(this.baseUrl, pizza);
   }
-  
+
   editarPizza(pizza: Produto): Observable<any> {
     const url = `${this.baseUrl}/${pizza.id_pizza}`;
     return this.http.put<any>(url, pizza);
