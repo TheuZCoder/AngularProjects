@@ -11,6 +11,11 @@ import { LocalizacaoComponent } from './components/localizacao/localizacao.compo
 import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { HomeComponent } from './view/home/home.component';
 import { LoginComponent } from './view/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { CarrosComponent } from './view/carros/carros.component';
+import { MeusAlugueisComponent } from './view/meus-alugueis/meus-alugueis.component';
+import { ClienteService } from './service/cliente.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,13 +27,17 @@ import { LoginComponent } from './view/login/login.component';
     LocalizacaoComponent,
     CadastroComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    CarrosComponent,
+    MeusAlugueisComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

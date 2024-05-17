@@ -1,1 +1,27 @@
-<p>cadastro works!</p>
+<div class="container">
+    <h1>Cadastro de Cliente</h1>
+    <form (ngSubmit)="cadastroCliente()">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome_cliente" [(ngModel)]="cliente.nome_cliente">
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco_cliente" [(ngModel)]="cliente.endereco_cliente">
+
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade_cliente" [(ngModel)]="cliente.cidade_cliente">
+
+        <label for="estado">Estado:</label>
+        <input type="text" id="estado" name="estado_cliente" [(ngModel)]="cliente.estado_cliente" maxlength="2">
+
+        <label for="celular">Celular:</label>
+        <input type="tel" id="celular" name="celular_cliente" [(ngModel)]="cliente.celular_cliente">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email_cliente" [(ngModel)]="cliente.email_cliente">
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha_cliente" [(ngModel)]="cliente.senha_cliente">
+        <p>Complete o Formulario para se cadastrar</p>
+        <button type="submit">Submit</button>
+    </form>
+</div>

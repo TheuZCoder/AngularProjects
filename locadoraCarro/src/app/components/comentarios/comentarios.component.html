@@ -1,1 +1,11 @@
-<p>comentarios works!</p>
+<section class="testimonials">
+    <div class="container">
+        <h2>Depoimentos de Clientes</h2>
+        <div class="testimonial-list">
+                <div *ngFor="let comentario of Comentarios" class="testimonial-card">
+                    <p>{{ comentario.text }}</p>
+                    <p class="author">- {{ comentario.author }}</p>
+                </div>
+        </div>
+    </div>
+</section>
