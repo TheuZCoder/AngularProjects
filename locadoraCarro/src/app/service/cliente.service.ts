@@ -14,4 +14,9 @@ export class ClienteService {
  cadastrarCliente(cliente: Cliente): Observable<any> {
    return this.http.post<any>(this.apiUrl, cliente);
  }
+
+ loginCliente(email: string, senha: string): Observable<any> {
+  const loginData = { email, senha };
+  return this.http.post<any>(`${this.apiUrl}/login`, loginData);
+}
 }
