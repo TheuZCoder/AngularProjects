@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/models/clientes.model';
 import { ClienteService } from 'src/app/service/cliente.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cadastro',
@@ -28,6 +29,12 @@ export class CadastroComponent {
     ) {
       this.clienteService.cadastrarCliente(this.cliente).subscribe(
         () => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Cadastro realizado com sucesso!',
+            showConfirmButton: false,
+            timer: 1500,
+          });
           this.router.navigate(['login']);
         },
         (error) => {
@@ -35,6 +42,12 @@ export class CadastroComponent {
           alert('Erro ao cadastrar cliente');
         }
       );
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Preencha todos os campos!',
+      });
     }
   }
 }
