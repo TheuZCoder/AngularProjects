@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/models/clientes.model';
 import { ClienteService } from 'src/app/service/cliente.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   email : string = '';
   senha : string = '';
 
-constructor (  
+constructor (
   private clienteService: ClienteService,
   private router: Router
 ){}
@@ -33,6 +34,12 @@ loginCliente() {
         alert('Erro ao fazer login');
       }
     );
+  } else{
+    Swal.fire({
+      icon: 'error',
+      title: 'Erro ao logar',
+      text: 'Preencha todos os campos'
+    });
   }
 }
 
