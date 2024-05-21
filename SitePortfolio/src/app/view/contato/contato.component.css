@@ -1,0 +1,54 @@
+section.formulario{
+  padding: 80px 4%;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 30px;
+}
+
+h2 span {
+  color: #236579;
+}
+
+form{
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+form input, form textarea, form button{
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 20px 15px;
+  background-color: rgba(49, 48, 48, 0.637);
+  border-radius: 15px;
+  color: white;
+  font-size: 18px;
+}
+form textarea{
+  resize: none;
+  height: 200px;
+}
+
+form .btn-enviar{
+  margin-top: 20px;
+  text-align: center;
+
+}
+
+form .btn-enviar input[type = submit]{
+  background-color: #236579;
+  width: 120px;
+  cursor: pointer;
+  transition: .5s;
+  font-weight: 700;
+}
+
