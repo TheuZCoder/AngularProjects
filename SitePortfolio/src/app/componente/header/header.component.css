@@ -63,7 +63,7 @@ header {
   overflow: hidden;
   max-height: 0;
   visibility: hidden;
-  transition: max-height 1s ease-out, visibility 0.5s;
+  transition: max-height 1s ease-out, visibility 1s;
 }
 
 .navbaixo.active {
