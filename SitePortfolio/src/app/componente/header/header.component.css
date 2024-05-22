@@ -46,6 +46,11 @@ header {
   display: flex;
   justify-content: space-between;
 }
+.navbaixo nav {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+}
 
 /* Estilos para o botão do menu hamburguer */
 .menu-btn {
@@ -86,7 +91,40 @@ header {
     display: block;
   }
 
-  .navbar nav.active {
+  .navbaixo nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+  .navbaixo nav.active {
     display: flex;
   }
+  .navbaixo nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .navbaixo nav ul li:hover {
+    background-color: #555;
+    transition: background-color 0.3s ease;
+    border-radius: 25px;
+  }
+  .navbaixo nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .navbaixo nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+    .navbaixo nav ul li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 }

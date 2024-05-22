@@ -14,8 +14,21 @@
         </ul>
       </nav>
     </div>
+    <div class="hamburguer">
+      <button class="menu-btn" (click)="toggleMenu()" (click)="toggleMenuOff()">
+        &#9776;
+      </button>
   </div>
-  <div class="hamburguer">
-    <button class="menu-btn" (click)="toggleMenu()">&#9776;</button>
+  </div>
+  <div class="navbaixo">
+    <nav [class.active]="menuDeactivate">
+      <ul>
+        <li><a routerLink="">Home</a></li>
+        <li><a routerLink="projetos">Projetos</a></li>
+        <li><a routerLink="certificados">Certificados</a></li>
+        <li><a routerLink="sobreMim">Sobre mim</a></li>
+        <li><a routerLink="contato">Contato</a></li>
+      </ul>
+    </nav>
   </div>
 </header>

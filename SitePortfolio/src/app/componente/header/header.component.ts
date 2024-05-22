@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   menuActive = false;
+  menuDeactivate = false;
 
   toggleMenu() {
     this.menuActive = !this.menuActive;
+  }
+
+  toggleMenuOff() {
+    this.menuDeactivate = !this.menuDeactivate;
   }
 }
