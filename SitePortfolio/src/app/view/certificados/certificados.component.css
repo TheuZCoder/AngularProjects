@@ -101,4 +101,12 @@ h1 {
     width: 100%;
     margin-bottom: 10px;
   }
+    .container {
+      display: flex;
+      flex-direction: column;
+      max-width: 1200px;
+      margin: 20px auto;
+      margin-bottom: 100px;
+      padding: 0 20px;
+    }
 }
