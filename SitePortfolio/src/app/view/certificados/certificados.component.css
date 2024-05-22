@@ -81,6 +81,18 @@ h1 {
 }
 
 @media (max-width: 768px) {
+  header input{
+    width: 30%;
+  }
+  h1{
+    font-size: 24px;
+  }
+  .flex {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
   .img-port {
     width: 100%;
   }
