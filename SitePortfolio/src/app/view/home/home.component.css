@@ -1,8 +1,10 @@
+/* Estilos para a seção topo-do-site */
 section.topo-do-site {
   padding: 40px 4%;
   margin-top: 9%;
 }
 
+/* Estilos para o layout flex */
 .flex {
   display: flex;
   justify-content: center;
@@ -10,6 +12,7 @@ section.topo-do-site {
   gap: 90px;
 }
 
+/* Estilos para o título */
 .topo-do-site h1 {
   color: black;
   font-size: 42px;
@@ -20,11 +23,13 @@ section.topo-do-site {
   color: #236579;
 }
 
+/* Estilos para o parágrafo */
 .topo-do-site p {
   color: black;
   margin: 40px 0;
 }
 
+/* Estilos para o botão de contato */
 .btn-contato {
   padding: 10px 40px;
   font-size: 18px;
@@ -36,7 +41,7 @@ section.topo-do-site {
   color: white;
   box-shadow: 0px 0px 8px 0px #236579;
   text-decoration: none;
-  transition: .2s;
+  transition: 0.2s;
   display: inline-block;
 }
 
@@ -52,6 +57,7 @@ section.topo-do-site {
   text-decoration: none;
 }
 
+/* Estilos para a imagem no topo do site */
 .topo-do-site .img-topo-site img {
   position: relative;
   animation: flutuar 2s ease-in-out infinite alternate;
@@ -65,5 +71,39 @@ section.topo-do-site {
 
   100% {
     top: 30px;
+  }
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .topo-do-site h1 {
+    font-size: 32px;
+    line-height: 36px;
+    text-align: center;
+  }
+
+  .topo-do-site p {
+    font-size: 16px;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .btn-contato {
+    font-size: 16px;
+    padding: 10px 20px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .topo-do-site .img-topo-site img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
   }
 }
