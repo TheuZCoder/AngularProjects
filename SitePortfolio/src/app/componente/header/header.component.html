@@ -4,7 +4,7 @@
       <h1>Portfólio</h1>
     </div>
     <div class="navbar">
-      <nav [class.active]="menuActive">
+      <nav>
         <ul>
           <li><a routerLink="">Home</a></li>
           <li><a routerLink="projetos">Projetos</a></li>
@@ -15,13 +15,13 @@
       </nav>
     </div>
     <div class="hamburguer">
-      <button class="menu-btn" (click)="toggleMenu()" (click)="toggleMenuOff()">
+      <button class="menu-btn" (click)="toggleMenu()">
         &#9776;
       </button>
+    </div>
   </div>
-  </div>
-  <div class="navbaixo">
-    <nav [class.active]="menuDeactivate">
+  <div class="navbaixo" [class.active]="menuActive">
+    <nav>
       <ul>
         <li><a routerLink="">Home</a></li>
         <li><a routerLink="projetos">Projetos</a></li>

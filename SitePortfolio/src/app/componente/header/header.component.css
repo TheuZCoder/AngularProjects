@@ -13,7 +13,7 @@ header {
 }
 
 /* Estilos para a navbar */
-.navbar{
+.navbar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,14 +42,10 @@ header {
   padding: 5px 10px;
   border-radius: 5px;
 }
-.interface{
+
+.interface {
   display: flex;
   justify-content: space-between;
-}
-.navbaixo nav {
-  display: none;
-  flex-direction: column;
-  width: 100%;
 }
 
 /* Estilos para o botão do menu hamburguer */
@@ -60,6 +56,20 @@ header {
   border: none;
   color: #fff;
   cursor: pointer;
+}
+
+/* Estilos para o navbaixo */
+.navbaixo {
+  overflow: hidden;
+  max-height: 0;
+  visibility: hidden;
+  transition: max-height 1s ease-out, visibility 0.5s;
+}
+
+.navbaixo.active {
+  max-height: 200px;
+  /* Ajuste a altura conforme necessário */
+  visibility: visible;
 }
 
 /* Media queries para responsividade */
@@ -91,40 +101,29 @@ header {
     display: block;
   }
 
-  .navbaixo nav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-  }
-  .navbaixo nav.active {
-    display: flex;
-  }
-  .navbaixo nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  .navbaixo nav ul li:hover {
-    background-color: #555;
-    transition: background-color 0.3s ease;
-    border-radius: 25px;
-  }
-  .navbaixo nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
   .navbaixo nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
   }
-    .navbaixo nav ul li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+
+  .navbaixo nav ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbaixo nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  .navbaixo nav ul li:hover {
+    background-color: #555;
+    transition: background-color 0.3s ease;
+    border-radius: 25px;
+  }
 }

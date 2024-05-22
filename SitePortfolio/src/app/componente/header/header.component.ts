@@ -6,14 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  menuActive = false;
-  menuDeactivate = false;
+   menuActive = false;
 
   toggleMenu() {
     this.menuActive = !this.menuActive;
-  }
-
-  toggleMenuOff() {
-    this.menuDeactivate = !this.menuDeactivate;
   }
 }
