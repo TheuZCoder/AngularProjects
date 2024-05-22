@@ -1,10 +1,8 @@
 /* Estilos para o header */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 10px 20px;
-  height: 50px;
+  align-items: center;
+  height: 35px;
   background-color: #333;
   color: #fff;
 }
@@ -15,8 +13,10 @@ header {
 }
 
 /* Estilos para a navbar */
-.navbar nav {
+.navbar{
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar nav ul {
@@ -41,6 +41,10 @@ header {
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
+}
+.interface{
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Estilos para o botão do menu hamburguer */
