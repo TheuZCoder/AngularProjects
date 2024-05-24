@@ -4,9 +4,10 @@
         <ul class="menu">
             <li><a routerLink="">Início</a></li>
             <li><a routerLink="carrosDisponiveis">Carros Disponíveis</a></li>
-            <li><a routerLink="meuAluguel">Meus Aluguéis</a></li>
-            <li><a routerLink="login">Login</a></li>
-            <li><a routerLink="cadastro">Cadastro</a></li>
+            <li *ngIf="clienteService.isAuthenticaded()"><a routerLink="meuAluguel">Meus Aluguéis</a></li>
+            <li *ngIf="!clienteService.isAuthenticaded()"><a routerLink="login">Login</a></li>
+            <li *ngIf="!clienteService.isAuthenticaded()"><a routerLink="cadastro">Cadastro</a></li>
+             <li *ngIf="clienteService.isAuthenticaded()"><a href="#" (click)="logout()">Logout</a></li>
         </ul>
     </nav>
 </header>
