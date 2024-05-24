@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Carro } from 'src/app/models/carro.model';
 import { CarroService } from 'src/app/service/carro.service';
+import { ClienteService } from 'src/app/service/cliente.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-carros',
@@ -14,7 +17,7 @@ export class CarrosComponent implements OnInit{
   carroSelecionado: Carro | null = null;
 
 
-  constructor(private carroService: CarroService) {}
+  constructor(private carroService: CarroService, private authService: ClienteService, private router:Router) {}
 
   ngOnInit(): void {
     this.carroService.getCarros().subscribe(carros => {
@@ -42,7 +45,24 @@ export class CarrosComponent implements OnInit{
   }
 
   abrirPainelAluguel(carro: Carro): void {
-    this.carroSelecionado = carro;
+    if (this.authService.isLoggedIn) { // Verifica se o cliente está logado antes de alugar
+      this.carroSelecionado = carro;
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Você precisa estar logado para alugar um carro',
+        showConfirmButton: true,
+        confirmButtonText: 'Fazer login',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Redirecionando para a página de login...');
+          this.router.navigate(['login']);
+        }
+      });
+
+    }
   }
 
   fecharPainelAluguel(): void {
