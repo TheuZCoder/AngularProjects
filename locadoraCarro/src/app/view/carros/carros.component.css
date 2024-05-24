@@ -9,6 +9,27 @@ h2{
   font-size: 28px;
 }
 
+.titulo-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button-filtro{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.disponibilidade:hover{
+
+  transform: scale(1.1);
+}
+
+.disponibilidade{
+  background-color: #969696;
+}
+
 .carro-list{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

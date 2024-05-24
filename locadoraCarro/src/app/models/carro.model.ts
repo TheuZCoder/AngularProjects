@@ -5,7 +5,7 @@ export class Carro {
   marca_carro: string;
   ano_carro: number;
   cor_carro: string;
-  disponivel_carro: boolean;
+  disponibilidade_carro: boolean;
   img_carro?: string;
   preco_carro: number;
 
@@ -16,7 +16,7 @@ export class Carro {
     marca_carro: string,
     ano_carro: number,
     cor_carro: string,
-    disponivel_carro: boolean,
+    disponibilidade_carro: boolean,
     img_carro: string,
     preco_carro: number
   ) {
@@ -26,7 +26,7 @@ export class Carro {
     this.marca_carro = marca_carro;
     this.ano_carro = ano_carro;
     this.cor_carro = cor_carro;
-    this.disponivel_carro = disponivel_carro;
+    this.disponibilidade_carro = disponibilidade_carro;
     this.img_carro = img_carro;
     this.preco_carro = preco_carro;
   }

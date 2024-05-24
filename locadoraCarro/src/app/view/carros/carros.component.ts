@@ -10,7 +10,7 @@ import { CarroService } from 'src/app/service/carro.service';
 export class CarrosComponent implements OnInit{
   carros: Carro[] = [];
   carrosAll: Carro[] = [];
-
+  mostrarDisponiveis: boolean = false;
 
   constructor(private carroService: CarroService) {}
 
@@ -25,4 +25,12 @@ export class CarrosComponent implements OnInit{
 
   }
 
+  toggleDisponiveis() {
+    this.mostrarDisponiveis = !this.mostrarDisponiveis;
+    if (this.mostrarDisponiveis) {
+      this.carros = this.carrosAll.filter(carro => carro.disponibilidade_carro === true);
+    } else {
+      this.carros = this.carrosAll;
+    }
+  }
 }

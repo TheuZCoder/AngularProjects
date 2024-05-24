@@ -17,6 +17,7 @@ import { MeusAlugueisComponent } from './view/meus-alugueis/meus-alugueis.compon
 import { ClienteService } from './service/cliente.service';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,13 +30,14 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     CarrosComponent,
-    MeusAlugueisComponent
+    MeusAlugueisComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent]

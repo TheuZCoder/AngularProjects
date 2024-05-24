@@ -1,20 +1,24 @@
 <section class="body">
-  <h2 class="titulo">Carros Alugaveis</h2>
+  
+    <h2 class="titulo">Carros Alugaveis</h2>
+  <div class="button-filtro">
+    <button class="disponibilidade" (click)="toggleDisponiveis()">Mostrar Disponíveis</button>
+  </div>
 
   <div class="interface">
-      <div class="container">
-          <div class="carro-list">
-              <div class="carro-item" *ngFor="let carro of carros">
-                  <div class="container-item">
-                      <img [src]="carro.img_carro" alt="{{carro.modelo_carro}}">
-                      <h3>{{carro.modelo_carro}}</h3>
-                      <p>{{carro.ano_carro}}</p>
-                      <p>{{carro.disponivel_carro}}</p>
-                      <p>Preço: R$ {{ carro.preco_carro}}</p>
-                      <button (click)="adicionarCarro()">Alugar Carro</button>
-                  </div>
-              </div>
+    <div class="container">
+      <div class="carro-list">
+        <div class="carro-item" *ngFor="let carro of carros">
+          <div class="container-item">
+            <img [src]="carro.img_carro" alt="{{carro.modelo_carro}}">
+            <h3>{{carro.modelo_carro}}</h3>
+            <p>{{carro.ano_carro}}</p>
+            <p>{{carro.disponibilidade_carro? 'Disponível' : 'Indisponível'}}</p>
+            <p>Preço: R$ {{carro.preco_carro}}</p>
+            <button (click)="adicionarCarro()">Alugar Carro</button>
           </div>
+        </div>
       </div>
+    </div>
   </div>
 </section>
