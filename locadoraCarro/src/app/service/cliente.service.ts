@@ -1,22 +1,69 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of, switchMap } from 'rxjs';
 import { Cliente } from '../models/clientes.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,) {}
 
-  private apiUrl = 'http://localhost:3000/clientes';
+  public isLoggedIn = false;
+  public clienteLogado: Cliente | null = null;
+
+  private apiUrl = 'http://localhost:3000/cliente';
+
+  getClientes(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.apiUrl);
+  }
 
  cadastrarCliente(cliente: Cliente): Observable<any> {
    return this.http.post<any>(this.apiUrl, cliente);
  }
 
- loginCliente(email: string, senha: string): Observable<any> {
-  const loginData = { email, senha };
-  return this.http.post<any>(`${this.apiUrl}/login`, loginData);
-}
+  loginCliente(email_cliente: string, senha_cliente: string): Observable<boolean> {
+    return this.getClientes().pipe(
+      map((clientes: Cliente[]) => {
+        const cliente = clientes.find(
+          (cliente) => cliente.email_cliente === email_cliente && cliente.senha_cliente === senha_cliente
+        );
+        this.isLoggedIn = !!cliente;
+        this.clienteLogado = cliente || null;
+        return this.isLoggedIn;
+      }),
+      catchError((error) => {
+        console.error('Erro ao obter cliente:', error);
+        return of(false);
+      }),
+      switchMap((loggedIn) => {
+        if (loggedIn) {
+          return this.getClienteLogado().pipe(
+            map((cliente: Cliente | null) => {
+              // Aqui você pode fazer o que precisar com o cliente logado
+              console.log('Cliente logado:', cliente);
+              return true; // Retorna true para indicar login bem-sucedido
+            })
+          );
+        } else {
+          return of(false); // Retorna false se o login falhar
+        }
+      })
+
+    );
+  }
+
+  getClienteLogado(): Observable<Cliente | null> {
+    return of(this.clienteLogado); // Retorna o cliente logado diretamente
+  }
+
+  logoutCliente(): void {
+    this.isLoggedIn = false;
+    this.clienteLogado = null;
+  }
+
+  isAuthenticaded(): boolean {
+    return this.isLoggedIn;
+  }
+
 }

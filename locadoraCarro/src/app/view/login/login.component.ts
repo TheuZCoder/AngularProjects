@@ -10,8 +10,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email : string = '';
-  senha : string = '';
+  email_cliente : string = '';
+  senha_cliente : string = '';
 
 constructor (
   private clienteService: ClienteService,
@@ -19,21 +19,20 @@ constructor (
 ){}
 
 loginCliente() {
-  if (this.email && this.senha) {
-    this.clienteService.loginCliente(this.email, this.senha).subscribe(
-      (response) => {
-        if (response.success) {
-          localStorage.setItem('authToken', response.token);
-          this.router.navigate(['home']);
+  if (this.email_cliente && this.senha_cliente) {
+    this.clienteService.loginCliente(this.email_cliente, this.senha_cliente)
+      .subscribe((autenticado: boolean) => {
+        if (autenticado) {
+          this.router.navigate(['carrosDisponiveis']);
         } else {
-          alert('Login falhou');
+          Swal.fire({
+            icon: 'error',
+            title: 'Erro ao logar',
+            text: 'Email ou senha incorretos'
+          });
         }
-      },
-      (error) => {
-        console.error('Erro ao fazer login', error);
-        alert('Erro ao fazer login');
-      }
-    );
+
+      });
   } else{
     Swal.fire({
       icon: 'error',

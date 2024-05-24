@@ -3,13 +3,12 @@
     <form (ngSubmit)="loginCliente()" >
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" [(ngModel)]="email"  required>
+        <input type="email" id="email" name="email" [(ngModel)]="email_cliente"  required>
       </div>
       <div class="form-group">
         <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" [(ngModel)]="senha"  required>
+        <input type="password" id="password" name="password" [(ngModel)]="senha_cliente"  required>
       </div>
       <button type="submit">Login</button>
     </form>
   </div>
-  
