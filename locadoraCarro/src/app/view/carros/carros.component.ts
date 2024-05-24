@@ -33,4 +33,13 @@ export class CarrosComponent implements OnInit{
       this.carros = this.carrosAll;
     }
   }
+
+  search(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    const value = target.value.toLowerCase();
+
+    this.carros = this.carrosAll.filter(Carro =>
+      Carro.modelo_carro.toLowerCase().includes(value)
+    );
+  }
 }

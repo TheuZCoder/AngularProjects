@@ -1,6 +1,11 @@
 <section class="body">
-  
+
     <h2 class="titulo">Carros Alugaveis</h2>
+    <div class="search-container">
+      <form>
+          <input type="text" placeholder="Buscar carro por nome" (input)="search($event)">
+      </form>
+  </div>
   <div class="button-filtro">
     <button class="disponibilidade" (click)="toggleDisponiveis()">Mostrar Disponíveis</button>
   </div>

@@ -27,7 +27,7 @@ h2{
 }
 
 .disponibilidade{
-  background-color: #969696;
+  background-color: #ffffff;
 }
 
 .carro-list{
@@ -82,4 +82,27 @@ p {
   margin-bottom: 130px;
 }
 
+.search-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+  width: 100%;
+}
+
+.search-container form{
+  width: 30%;
+  position: relative;
+}
+
+.search-container button{
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.search-container input{
+  padding: 0.5em;
+  width: 100%;
+  text-align: center;
+}
 
