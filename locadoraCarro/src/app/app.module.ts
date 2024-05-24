@@ -16,6 +16,7 @@ import { CarrosComponent } from './view/carros/carros.component';
 import { MeusAlugueisComponent } from './view/meus-alugueis/meus-alugueis.component';
 import { ClienteService } from './service/cliente.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AluguelPainelComponent } from './components/aluguel-painel/aluguel-painel.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     CarrosComponent,
     MeusAlugueisComponent,
+    AluguelPainelComponent,
 
   ],
   imports: [

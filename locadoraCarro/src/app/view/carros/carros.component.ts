@@ -11,6 +11,8 @@ export class CarrosComponent implements OnInit{
   carros: Carro[] = [];
   carrosAll: Carro[] = [];
   mostrarDisponiveis: boolean = false;
+  carroSelecionado: Carro | null = null;
+
 
   constructor(private carroService: CarroService) {}
 
@@ -19,10 +21,6 @@ export class CarrosComponent implements OnInit{
       this.carros = carros;
       this.carrosAll = carros;
     });
-  }
-
-  adicionarCarro(){
-
   }
 
   toggleDisponiveis() {
@@ -41,5 +39,13 @@ export class CarrosComponent implements OnInit{
     this.carros = this.carrosAll.filter(Carro =>
       Carro.modelo_carro.toLowerCase().includes(value)
     );
+  }
+
+  abrirPainelAluguel(carro: Carro): void {
+    this.carroSelecionado = carro;
+  }
+
+  fecharPainelAluguel(): void {
+    this.carroSelecionado = null;
   }
 }

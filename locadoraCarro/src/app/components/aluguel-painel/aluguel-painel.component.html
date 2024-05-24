@@ -1,0 +1,18 @@
+<div class="aluguel-painel" *ngIf="carro">
+  <h2>Alugar {{ carro.modelo_carro }}</h2>
+  <form (ngSubmit)="alugarCarro()">
+    <label for="dias">Número de dias:</label>
+    <input
+      type="number"
+      id="dias"
+      [(ngModel)]="dias"
+      name="dias"
+      min="1"
+      required
+    />
+    <p>Preço por dia: R$ {{ carro.preco_carro }}</p>
+    <p>Preço total: R$ {{ calcularPrecoTotal() }}</p>
+    <button type="submit">Confirmar Aluguel</button>
+  </form>
+  <button (click)="fecharPainel()">Cancelar</button>
+</div>

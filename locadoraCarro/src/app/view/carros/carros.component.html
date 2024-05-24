@@ -20,10 +20,12 @@
             <p>{{carro.ano_carro}}</p>
             <p>{{carro.disponibilidade_carro? 'Disponível' : 'Indisponível'}}</p>
             <p>Preço: R$ {{carro.preco_carro}}</p>
-            <button (click)="adicionarCarro()">Alugar Carro</button>
+            <button (click)="abrirPainelAluguel(carro)">Alugar Carro</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <app-aluguel-painel *ngIf="carroSelecionado" [carro]="carroSelecionado"></app-aluguel-painel>
 </section>
