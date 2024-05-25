@@ -1,1 +1,29 @@
-<p>meus-alugueis works!</p>
+<section class="interface">
+  <div class="container">
+    <div *ngIf="alugueisDoCliente.length > 0" class="itens">
+      <h2>Meus Aluguéis</h2>
+      <ul>
+        <li *ngFor="let aluguel of alugueisDoCliente">
+          <div>
+            <p>Data Retirada: {{ aluguel.data_locacao | date }}</p>
+          </div>
+          <div>
+            <p>Data Devolução: {{ aluguel.data_devolucao | date }}</p>
+          </div>
+          <div>
+            <p>Valor Total: R{{ aluguel.valor_total | currency }}</p>
+          </div>
+          <div>
+            <p>Modelo Carro: {{ aluguel.nome_carro }}</p>
+          </div>
+          <div>
+            <p>Ano Carro: {{ aluguel.ano_carro }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="alugueisDoCliente.length === 0">
+      <p>Nenhum aluguel encontrado.</p>
+    </div>
+  </div>
+</section>

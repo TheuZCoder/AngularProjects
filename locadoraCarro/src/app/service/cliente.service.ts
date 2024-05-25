@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of, switchMap } from 'rxjs';
 import { Cliente } from '../models/clientes.model';
 import { Locacao } from '../models/locacao.model';
+import { Carro } from '../models/carro.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,8 @@ export class ClienteService {
   public clienteLogado: Cliente | null = null;
 
   private apiUrl = 'http://localhost:3000/cliente';
-  private alugueisUrl = 'http://localhost:3000/locacao'; // URL para buscar os aluguéis
+  private alugueisUrl = 'http://localhost:3000/locacao';
+  private carroURL = 'http://localhost:3000/carro'; // URL base da sua API
 
   getClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.apiUrl);
@@ -77,9 +79,13 @@ export class ClienteService {
   }
 
   getAlugueisClienteLogado(): Observable<Locacao[]> {
-    const idCliente = this.clienteLogado?.id_cliente || 0; 
+    const idCliente = this.clienteLogado?.id_cliente || 0; // Obtém o ID do cliente logado
     return this.http.get<Locacao[]>(
       `${this.alugueisUrl}?id_cliente=${idCliente}`
     );
+  }
+
+  getCarroById(id_carro: number): Observable<Carro> {
+    return this.http.get<Carro>(`${this.carroURL}/${id_carro}`);
   }
 }
