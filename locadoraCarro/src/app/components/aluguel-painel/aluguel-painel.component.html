@@ -1,14 +1,25 @@
 <div class="aluguel-painel" *ngIf="carro">
   <h2>Alugar {{ carro.modelo_carro }}</h2>
   <form (ngSubmit)="alugarCarro()">
-    <label for="dias">Número de dias:</label>
+    <label for="dataLocacao">Data de Locação:</label>
     <input
-      type="number"
-      id="dias"
-      [(ngModel)]="dias"
-      name="dias"
-      min="1"
+      type="text"
+      id="dataLocacao"
+      [(ngModel)]="dataLocacao"
+      bsDatepicker
+      name="dataLocacao"
       required
+      [bsConfig]="bsConfig"
+    />
+    <label for="dataEntrega">Data de Entrega:</label>
+    <input
+      type="text"
+      id="dataEntrega"
+      [(ngModel)]="dataEntrega"
+      bsDatepicker
+      name="dataEntrega"
+      required
+      [bsConfig]="bsConfig"
     />
     <p>Preço por dia: R$ {{ carro.preco_carro }}</p>
     <p>Preço total: R$ {{ calcularPrecoTotal() }}</p>

@@ -17,6 +17,8 @@ import { MeusAlugueisComponent } from './view/meus-alugueis/meus-alugueis.compon
 import { ClienteService } from './service/cliente.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AluguelPainelComponent } from './components/aluguel-painel/aluguel-painel.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -33,15 +35,16 @@ import { AluguelPainelComponent } from './components/aluguel-painel/aluguel-pain
     CarrosComponent,
     MeusAlugueisComponent,
     AluguelPainelComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BsDatepickerModule.forRoot(),
+    CommonModule,
   ],
   providers: [ClienteService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
