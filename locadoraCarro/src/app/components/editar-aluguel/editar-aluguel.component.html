@@ -1,0 +1,24 @@
+<section class="interface">
+  <div class="container">
+    <h2>Editar Aluguel</h2>
+    <div *ngIf="aluguel">
+      <p>Nome do Carro: {{ nomeCarro }}</p>
+      <p>Preço Total: R$ {{ valorTotal | currency }}</p>
+    </div>
+    <form *ngIf="aluguel" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="dataRetirada">Data Retirada:</label>
+        <input type="date" id="dataRetirada" [(ngModel)]="aluguel.data_locacao" name="dataRetirada" required />
+      </div>
+      <div>
+        <label for="dataDevolucao">Data Devolução:</label>
+        <input type="date" id="dataDevolucao" [(ngModel)]="aluguel.data_devolucao" name="dataDevolucao" required />
+      </div>
+      <button type="submit">Salvar</button>
+      <button type="button" (click)="voltarPagina()">Cancelar</button>
+    </form>
+    <div *ngIf="!aluguel">
+      <p>Locação não encontrada.</p>
+    </div>
+  </div>
+</section>

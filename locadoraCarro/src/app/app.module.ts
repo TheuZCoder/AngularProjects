@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AluguelPainelComponent } from './components/aluguel-painel/aluguel-painel.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { CommonModule } from '@angular/common';
+import { EditarAluguelComponent } from './components/editar-aluguel/editar-aluguel.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { CommonModule } from '@angular/common';
     CarrosComponent,
     MeusAlugueisComponent,
     AluguelPainelComponent,
+    EditarAluguelComponent,
   ],
   imports: [
     BrowserModule,

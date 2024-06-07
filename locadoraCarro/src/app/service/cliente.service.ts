@@ -89,6 +89,14 @@ export class ClienteService {
     return this.http.get<Carro>(`${this.carroURL}/${id_carro}`);
   }
 
+  updateAluguel(id_locacao: number, aluguel: Locacao): Observable<Locacao> {
+    return this.http.put<Locacao>(`${this.alugueisUrl}/${id_locacao}`, aluguel);
+  }
+
+  getAluguelById(id_locacao: number): Observable<Locacao> {
+    return this.http.get<Locacao>(`${this.alugueisUrl}/${id_locacao}`);
+  }
+
   excluirAluguel(id_locacao: number): Observable<Locacao> {
     return this.http.delete<Locacao>(`${this.alugueisUrl}/${id_locacao}`);
   }
@@ -96,5 +104,9 @@ export class ClienteService {
     return this.http.patch<Carro>(`${this.carroURL}/${id_carro}`, {
       disponibilidade_carro,
     });
+  }
+
+  editarAluguel(aluguel: Locacao): Observable<Locacao> {
+    return this.http.put<Locacao>(`${this.alugueisUrl}/${aluguel.id_locacao}`, aluguel);
   }
 }

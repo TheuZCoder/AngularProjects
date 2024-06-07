@@ -5,9 +5,9 @@ import { CarrosComponent } from './view/carros/carros.component';
 import { MeusAlugueisComponent } from './view/meus-alugueis/meus-alugueis.component';
 import { LoginComponent } from './view/login/login.component';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
+import { EditarAluguelComponent } from './components/editar-aluguel/editar-aluguel.component';
 
 const routes: Routes = [
-
   {
     path: '',
     component: HomeComponent,
@@ -27,6 +27,10 @@ const routes: Routes = [
   {
     path: 'cadastro',
     component: CadastroComponent,
+  },
+  {
+    path: 'editar-aluguel/:id',
+    component: EditarAluguelComponent,
   },
 ];
 

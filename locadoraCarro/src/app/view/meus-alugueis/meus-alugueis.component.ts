@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { Carro } from 'src/app/models/carro.model';
 import { Locacao } from 'src/app/models/locacao.model';
@@ -12,7 +13,7 @@ import { ClienteService } from 'src/app/service/cliente.service';
 export class MeusAlugueisComponent implements OnInit {
   alugueisDoCliente: Locacao[] = [];
 
-  constructor(private clienteService: ClienteService) {}
+  constructor(private clienteService: ClienteService,private router: Router) {}
 
   ngOnInit(): void {
     this.buscarAlugueisDoClienteLogado();
@@ -61,9 +62,8 @@ export class MeusAlugueisComponent implements OnInit {
     });
   }
 
-  editarCarro(aluguel: Locacao): void {
-    // Implemente a lógica de edição do carro aqui
-    // Atualize as informações do carro no backend e na lista de aluguéis do cliente
+  editarAluguel(aluguel: Locacao): void {
+    this.router.navigate(['editar-aluguel', aluguel.id_locacao]);
   }
 
   excluirCarro(aluguel: Locacao): void {
