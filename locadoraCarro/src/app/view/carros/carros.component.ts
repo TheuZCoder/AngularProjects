@@ -8,19 +8,26 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-carros',
   templateUrl: './carros.component.html',
-  styleUrls: ['./carros.component.css']
+  styleUrls: ['./carros.component.css'],
 })
-export class CarrosComponent implements OnInit{
+export class CarrosComponent implements OnInit {
   carros: Carro[] = [];
   carrosAll: Carro[] = [];
   mostrarDisponiveis: boolean = false;
   carroSelecionado: Carro | null = null;
 
-
-  constructor(private carroService: CarroService, private authService: ClienteService, private router:Router) {}
+  constructor(
+    private carroService: CarroService,
+    private authService: ClienteService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.carroService.getCarros().subscribe(carros => {
+    this.loadCarros();
+  }
+
+  loadCarros(): void {
+    this.carroService.getCarros().subscribe((carros) => {
       this.carros = carros;
       this.carrosAll = carros;
     });
@@ -29,7 +36,9 @@ export class CarrosComponent implements OnInit{
   toggleDisponiveis() {
     this.mostrarDisponiveis = !this.mostrarDisponiveis;
     if (this.mostrarDisponiveis) {
-      this.carros = this.carrosAll.filter(carro => carro.disponibilidade_carro === true);
+      this.carros = this.carrosAll.filter(
+        (carro) => carro.disponibilidade_carro === true
+      );
     } else {
       this.carros = this.carrosAll;
     }
@@ -39,13 +48,22 @@ export class CarrosComponent implements OnInit{
     const target = e.target as HTMLInputElement;
     const value = target.value.toLowerCase();
 
-    this.carros = this.carrosAll.filter(Carro =>
-      Carro.modelo_carro.toLowerCase().includes(value)
+    this.carros = this.carrosAll.filter((carro) =>
+      carro.modelo_carro.toLowerCase().includes(value)
     );
   }
 
   abrirPainelAluguel(carro: Carro): void {
-    if (this.authService.isLoggedIn) { // Verifica se o cliente está logado antes de alugar
+    if (!carro.disponibilidade_carro) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Carro indisponível',
+        text: 'Este carro já foi alugado e não está disponível no momento.',
+      });
+      return;
+    }
+
+    if (this.authService.isLoggedIn) {
       this.carroSelecionado = carro;
     } else {
       Swal.fire({
@@ -61,11 +79,15 @@ export class CarrosComponent implements OnInit{
           this.router.navigate(['login']);
         }
       });
-
     }
   }
 
   fecharPainelAluguel(): void {
     this.carroSelecionado = null;
+    this.loadCarros(); // Atualiza a lista de carros
+  }
+
+  onAluguelCriado(): void {
+    this.loadCarros(); // Atualiza a lista de carros quando um aluguel é criado
   }
 }

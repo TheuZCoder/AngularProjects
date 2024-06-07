@@ -1,13 +1,18 @@
 <section class="body">
-
-    <h2 class="titulo">Carros Alugaveis</h2>
-    <div class="search-container">
-      <form>
-          <input type="text" placeholder="Buscar carro por nome" (input)="search($event)">
-      </form>
+  <h2 class="titulo">Carros Alugaveis</h2>
+  <div class="search-container">
+    <form>
+      <input
+        type="text"
+        placeholder="Buscar carro por nome"
+        (input)="search($event)"
+      />
+    </form>
   </div>
   <div class="button-filtro">
-    <button class="disponibilidade" (click)="toggleDisponiveis()">Mostrar Disponíveis</button>
+    <button class="disponibilidade" (click)="toggleDisponiveis()">
+      Mostrar Disponíveis
+    </button>
   </div>
 
   <div class="interface">
@@ -15,17 +20,24 @@
       <div class="carro-list">
         <div class="carro-item" *ngFor="let carro of carros">
           <div class="container-item">
-            <img [src]="carro.img_carro" alt="{{carro.modelo_carro}}">
-            <h3>{{carro.modelo_carro}}</h3>
-            <p>{{carro.ano_carro}}</p>
-            <p>{{carro.disponibilidade_carro? 'Disponível' : 'Indisponível'}}</p>
-            <p>Preço: R$ {{carro.preco_carro}}</p>
-            <button (click)="abrirPainelAluguel(carro)">Alugar Carro</button>
+            <img [src]="carro.img_carro" alt="{{ carro.modelo_carro }}" />
+            <h3>{{ carro.modelo_carro }}</h3>
+            <p>{{ carro.ano_carro }}</p>
+            <p>
+              {{ carro.disponibilidade_carro ? "Disponível" : "Indisponível" }}
+            </p>
+            <p>Preço: R$ {{ carro.preco_carro }}</p>
+            <button (click)="abrirPainelAluguel(carro)" [disabled]="!carro.disponibilidade_carro">Alugar Carro</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <app-aluguel-painel *ngIf="carroSelecionado" [carro]="carroSelecionado"></app-aluguel-painel>
+  <div *ngIf="carroSelecionado">
+    <app-aluguel-painel
+      [carro]="carroSelecionado"
+      (aluguelCriado)="onAluguelCriado()"
+    ></app-aluguel-painel>
+  </div>
 </section>

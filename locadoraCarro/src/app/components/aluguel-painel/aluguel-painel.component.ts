@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Carro } from 'src/app/models/carro.model';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { AluguelService } from 'src/app/service/aluguel.service';
@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class AluguelPainelComponent implements OnInit {
   @Input() carro: Carro | null = null;
+  @Output() aluguelCriado = new EventEmitter<void>();
   dias: number = 1;
   dataLocacao: Date = new Date(); // Inicializando com a data atual
   dataEntrega: Date = new Date(); // Inicializando com a data atual
@@ -54,11 +55,16 @@ export class AluguelPainelComponent implements OnInit {
       (response) => {
         Swal.fire('Aluguel registrado com sucesso!', '', 'success');
         console.log('Aluguel registrado com sucesso:', response);
+        this.aluguelCriado.emit(); // Emite o evento
         this.fecharPainel();
       },
       (error) => {
         console.error('Erro ao registrar aluguel:', error);
-        Swal.fire('Erro ao registrar aluguel', 'Tente novamente mais tarde', 'error');
+        Swal.fire(
+          'Erro ao registrar aluguel',
+          'Tente novamente mais tarde',
+          'error'
+        );
       }
     );
   }

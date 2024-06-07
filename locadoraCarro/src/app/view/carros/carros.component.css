@@ -9,6 +9,11 @@ h2{
   font-size: 28px;
 }
 
+.indisponivel {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .titulo-card{
   display: flex;
   flex-direction: column;
