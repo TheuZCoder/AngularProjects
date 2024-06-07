@@ -1,5 +1,5 @@
 export class Locacao {
-  id_locacao?: number;
+  id_locacao: number;
   data_locacao: Date;
   valor_total: number;
   data_devolucao: Date;

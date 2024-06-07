@@ -60,4 +60,34 @@ export class MeusAlugueisComponent implements OnInit {
       );
     });
   }
+
+  editarCarro(aluguel: Locacao): void {
+    // Implemente a lógica de edição do carro aqui
+    // Atualize as informações do carro no backend e na lista de aluguéis do cliente
+  }
+
+  excluirCarro(aluguel: Locacao): void {
+    this.clienteService
+      .updateDisponibilidadeCarro(aluguel.id_carro, true)
+      .subscribe(
+        () => {
+          console.log('Disponibilidade do carro atualizada com sucesso.');
+        },
+        (error) => {
+          console.error('Erro ao atualizar disponibilidade do carro:', error);
+        }
+      );
+    this.clienteService.excluirAluguel(aluguel.id_locacao).subscribe(
+      () => {
+        // Remova o carro da lista de aluguéis do cliente
+        this.alugueisDoCliente = this.alugueisDoCliente.filter(
+          (a) => a !== aluguel
+        );
+        console.log('Carro excluído com sucesso.');
+      },
+      (error) => {
+        console.error('Erro ao excluir carro:', error);
+      }
+    );
+  }
 }

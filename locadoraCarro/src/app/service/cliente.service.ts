@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map, of, switchMap } from 'rxjs';
+import { Observable, catchError, forkJoin, map, of, switchMap } from 'rxjs';
 import { Cliente } from '../models/clientes.model';
 import { Locacao } from '../models/locacao.model';
 import { Carro } from '../models/carro.model';
@@ -87,5 +87,14 @@ export class ClienteService {
 
   getCarroById(id_carro: number): Observable<Carro> {
     return this.http.get<Carro>(`${this.carroURL}/${id_carro}`);
+  }
+
+  excluirAluguel(id_locacao: number): Observable<Locacao> {
+    return this.http.delete<Locacao>(`${this.alugueisUrl}/${id_locacao}`);
+  }
+  updateDisponibilidadeCarro(id_carro: number, disponibilidade_carro: boolean): Observable<Carro> {
+    return this.http.patch<Carro>(`${this.carroURL}/${id_carro}`, {
+      disponibilidade_carro,
+    });
   }
 }
