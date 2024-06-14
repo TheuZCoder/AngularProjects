@@ -1,0 +1,37 @@
+.interface {
+  margin-top: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 100px;
+}
+
+.cliente-carro {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.cliente-carro h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.cliente-carro ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.cliente-carro ul li {
+  margin-bottom: 10px;
+}
+
+.cliente-carro p {
+  margin: 0;
+}

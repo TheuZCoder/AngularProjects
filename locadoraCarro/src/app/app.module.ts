@@ -24,6 +24,7 @@ import { FuncionarioComponent } from './view/funcionario/funcionario.component';
 import { AluguelUsuarioComponent } from './components/aluguel-usuario/aluguel-usuario.component';
 import { ClienteMaisAlugouComponent } from './components/cliente-mais-alugou/cliente-mais-alugou.component';
 import { ReceitaTotalComponent } from './components/receita-total/receita-total.component';
+import { CarrosNaoAlugadosComponent } from './components/carros-nao-alugados/carros-nao-alugados.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { ReceitaTotalComponent } from './components/receita-total/receita-total.
     AluguelUsuarioComponent,
     ClienteMaisAlugouComponent,
     ReceitaTotalComponent,
+    CarrosNaoAlugadosComponent,
   ],
   imports: [
     BrowserModule,

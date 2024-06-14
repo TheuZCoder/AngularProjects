@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Locacao } from '../models/locacao.model';
+import { Carro } from '../models/carro.model';
 
 @Injectable({
   providedIn: 'root',
@@ -24,5 +25,9 @@ export class AluguelService {
       `${this.apiUrl}/receita-total`,
       { params }
     );
+  }
+
+  getCarrosNaoAlugados(): Observable<Carro[]> {
+    return this.http.get<Carro[]>(`${this.apiUrl}/carros-nao-alugados`);
   }
 }

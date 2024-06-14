@@ -1,0 +1,15 @@
+<section class="interface">
+  <div class="container">
+    <h2>Carros Não Alugados</h2>
+    <div *ngIf="carrosNaoAlugados.length > 0; else noData">
+      <ul>
+        <li *ngFor="let carro of carrosNaoAlugados">
+          {{ carro.modelo_carro }} ({{ carro.ano_carro }})
+        </li>
+      </ul>
+    </div>
+    <ng-template #noData>
+      <p>Não há carros disponíveis para aluguel.</p>
+    </ng-template>
+  </div>
+</section>
