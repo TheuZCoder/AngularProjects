@@ -5,6 +5,7 @@
       <div *ngFor="let item of clientesComCarros">
         <p>Nome do Cliente: {{ item.cliente.nome_cliente }}</p>
         <p>Carro Alugado: {{ item.carro.modelo_carro }} ({{ item.carro.ano_carro }})</p>
+        <hr>
       </div>
     </div>
     <ng-template #noData>

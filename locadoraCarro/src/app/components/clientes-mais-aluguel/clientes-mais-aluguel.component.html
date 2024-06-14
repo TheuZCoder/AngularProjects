@@ -1,0 +1,15 @@
+<section class="interface">
+  <div class="container">
+    <h2>Clientes que Alugaram Mais de um Carro</h2>
+    <ul *ngIf="clientesMaisAluguel.length > 0; else noData">
+      <li *ngFor="let cliente of clientesMaisAluguel">
+        <p>Nome: {{ cliente.nome_cliente }}</p>
+        <p>Email: {{ cliente.email_cliente }}</p>
+        <hr>
+      </li>
+    </ul>
+    <ng-template #noData>
+      <p>Não há clientes que alugaram mais de um carro.</p>
+    </ng-template>
+  </div>
+</section>

@@ -127,4 +127,8 @@ export class ClienteService {
   getClienteMaisAlugou(): Observable<Cliente> {
     return this.http.get<Cliente>(`${this.apiUrl}/cliente-mais-alugou`);
   }
+
+  getClientesMaisDeUmAluguel(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`${this.apiUrl}/clientes-mais-de-um-aluguel`);
+  }
 }
