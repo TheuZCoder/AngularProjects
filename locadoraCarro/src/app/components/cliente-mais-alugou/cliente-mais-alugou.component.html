@@ -1,0 +1,14 @@
+<section class="interface">
+  <div class="container">
+    <h2>Cliente que Mais Alugou</h2>
+    <div *ngIf="clienteMaisAlugou">
+      <p>Nome: {{ clienteMaisAlugou.nome_cliente }}</p>
+      <p>Endereço: {{ clienteMaisAlugou.endereco_cliente }}</p>
+      <p>Cidade: {{ clienteMaisAlugou.cidade_cliente }}</p>
+      <!-- Adicione mais informações conforme necessário -->
+    </div>
+    <div *ngIf="!clienteMaisAlugou">
+      <p>Não foi possível encontrar o cliente que mais alugou veículos.</p>
+    </div>
+  </div>
+</section>

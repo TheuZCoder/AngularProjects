@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
 import { EditarAluguelComponent } from './components/editar-aluguel/editar-aluguel.component';
 import { FuncionarioComponent } from './view/funcionario/funcionario.component';
 import { AluguelUsuarioComponent } from './components/aluguel-usuario/aluguel-usuario.component';
+import { ClienteMaisAlugouComponent } from './components/cliente-mais-alugou/cliente-mais-alugou.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { AluguelUsuarioComponent } from './components/aluguel-usuario/aluguel-us
     EditarAluguelComponent,
     FuncionarioComponent,
     AluguelUsuarioComponent,
+    ClienteMaisAlugouComponent,
   ],
   imports: [
     BrowserModule,

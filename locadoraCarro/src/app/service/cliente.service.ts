@@ -100,17 +100,31 @@ export class ClienteService {
   excluirAluguel(id_locacao: number): Observable<Locacao> {
     return this.http.delete<Locacao>(`${this.alugueisUrl}/${id_locacao}`);
   }
-  updateDisponibilidadeCarro(id_carro: number, disponibilidade_carro: boolean): Observable<Carro> {
+  updateDisponibilidadeCarro(
+    id_carro: number,
+    disponibilidade_carro: boolean
+  ): Observable<Carro> {
     return this.http.patch<Carro>(`${this.carroURL}/${id_carro}`, {
       disponibilidade_carro,
     });
   }
 
   editarAluguel(aluguel: Locacao): Observable<Locacao> {
-    return this.http.put<Locacao>(`${this.alugueisUrl}/${aluguel.id_locacao}`, aluguel);
+    return this.http.put<Locacao>(
+      `${this.alugueisUrl}/${aluguel.id_locacao}`,
+      aluguel
+    );
   }
 
-  getClientesComCarrosAlugados(): Observable<{ cliente: Cliente; carro: Carro }[]> {
-  return this.http.get<{ cliente: Cliente; carro: Carro }[]>(`${this.apiUrl}/aluguel`);
+  getClientesComCarrosAlugados(): Observable<
+    { cliente: Cliente; carro: Carro }[]
+  > {
+    return this.http.get<{ cliente: Cliente; carro: Carro }[]>(
+      `${this.apiUrl}/aluguel`
+    );
+  }
+
+  getClienteMaisAlugou(): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.apiUrl}/cliente-mais-alugou`);
   }
 }
