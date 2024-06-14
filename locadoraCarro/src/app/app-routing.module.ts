@@ -6,6 +6,7 @@ import { MeusAlugueisComponent } from './view/meus-alugueis/meus-alugueis.compon
 import { LoginComponent } from './view/login/login.component';
 import { CadastroComponent } from './view/cadastro/cadastro.component';
 import { EditarAluguelComponent } from './components/editar-aluguel/editar-aluguel.component';
+import { FuncionarioComponent } from './view/funcionario/funcionario.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
     path: 'editar-aluguel/:id',
     component: EditarAluguelComponent,
   },
+  {
+    path: 'funcionario',
+    component: FuncionarioComponent
+  }
 ];
 
 @NgModule({

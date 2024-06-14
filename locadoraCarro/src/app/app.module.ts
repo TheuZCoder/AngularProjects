@@ -20,6 +20,8 @@ import { AluguelPainelComponent } from './components/aluguel-painel/aluguel-pain
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { CommonModule } from '@angular/common';
 import { EditarAluguelComponent } from './components/editar-aluguel/editar-aluguel.component';
+import { FuncionarioComponent } from './view/funcionario/funcionario.component';
+import { AluguelUsuarioComponent } from './components/aluguel-usuario/aluguel-usuario.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { EditarAluguelComponent } from './components/editar-aluguel/editar-alugu
     MeusAlugueisComponent,
     AluguelPainelComponent,
     EditarAluguelComponent,
+    FuncionarioComponent,
+    AluguelUsuarioComponent,
   ],
   imports: [
     BrowserModule,

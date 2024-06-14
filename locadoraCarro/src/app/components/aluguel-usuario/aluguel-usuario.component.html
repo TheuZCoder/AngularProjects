@@ -1,0 +1,14 @@
+<section class="interface">
+  <div class="container">
+    <h2>Clientes e Carros Alugados</h2>
+    <div *ngIf="clientesComCarros.length > 0; else noData">
+      <div *ngFor="let item of clientesComCarros">
+        <p>Nome do Cliente: {{ item.cliente.nome_cliente }}</p>
+        <p>Carro Alugado: {{ item.carro.modelo_carro }} ({{ item.carro.ano_carro }})</p>
+      </div>
+    </div>
+    <ng-template #noData>
+      <p>Não há clientes com carros alugados no momento.</p>
+    </ng-template>
+  </div>
+</section>

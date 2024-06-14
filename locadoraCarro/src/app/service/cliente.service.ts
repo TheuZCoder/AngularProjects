@@ -109,4 +109,8 @@ export class ClienteService {
   editarAluguel(aluguel: Locacao): Observable<Locacao> {
     return this.http.put<Locacao>(`${this.alugueisUrl}/${aluguel.id_locacao}`, aluguel);
   }
+
+  getClientesComCarrosAlugados(): Observable<{ cliente: Cliente; carro: Carro }[]> {
+  return this.http.get<{ cliente: Cliente; carro: Carro }[]>(`${this.apiUrl}/aluguel`);
+  }
 }
