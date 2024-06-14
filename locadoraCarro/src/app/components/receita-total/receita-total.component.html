@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Calcular Receita Total</h2>
+  <form (ngSubmit)="calcularReceita()">
+    <label for="dataInicio">Data de Início:</label>
+    <input type="date" id="dataInicio" [(ngModel)]="dataInicio" name="dataInicio" required />
+    <label for="dataFim">Data de Fim:</label>
+    <input type="date" id="dataFim" [(ngModel)]="dataFim" name="dataFim" required />
+    <button type="submit">Calcular</button>
+  </form>
+  <div *ngIf="receitaTotal !== 0">
+    <p>Receita Total: R$ {{ receitaTotal | currency }}</p>
+  </div>
+</div>

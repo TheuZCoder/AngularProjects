@@ -23,6 +23,7 @@ import { EditarAluguelComponent } from './components/editar-aluguel/editar-alugu
 import { FuncionarioComponent } from './view/funcionario/funcionario.component';
 import { AluguelUsuarioComponent } from './components/aluguel-usuario/aluguel-usuario.component';
 import { ClienteMaisAlugouComponent } from './components/cliente-mais-alugou/cliente-mais-alugou.component';
+import { ReceitaTotalComponent } from './components/receita-total/receita-total.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ClienteMaisAlugouComponent } from './components/cliente-mais-alugou/cli
     FuncionarioComponent,
     AluguelUsuarioComponent,
     ClienteMaisAlugouComponent,
+    ReceitaTotalComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,4 +14,15 @@ export class AluguelService {
   cadastrarLocacao(locacao: Locacao): Observable<any> {
     return this.http.post<any>(this.apiUrl, locacao);
   }
+
+  calcularReceitaTotal(
+    dataInicio: string,
+    dataFim: string
+  ): Observable<{ receita_total: number }> {
+    const params = { dataInicio, dataFim };
+    return this.http.get<{ receita_total: number }>(
+      `${this.apiUrl}/receita-total`,
+      { params }
+    );
+  }
 }
