@@ -20,7 +20,9 @@
       <div class="carro-list">
         <div class="carro-item" *ngFor="let carro of carros">
           <div class="container-item">
-            <img [src]="carro.img_carro" alt="{{ carro.modelo_carro }}" />
+            <div class="divImg">
+              <img [src]="carro.img_carro" alt="{{ carro.modelo_carro }}" />
+            </div>
             <h3>{{ carro.modelo_carro }}</h3>
             <p>{{ carro.ano_carro }}</p>
             <p>
