@@ -50,23 +50,22 @@ export class AluguelPainelComponent implements OnInit {
       idUsuario,
       this.carro?.id_carro || 0
     );
-
-    this.aluguelService.cadastrarLocacao(novaLocacao).subscribe(
-      (response) => {
-        Swal.fire('Aluguel registrado com sucesso!', '', 'success');
-        console.log('Aluguel registrado com sucesso:', response);
-        this.aluguelCriado.emit(); // Emite o evento
-        this.fecharPainel();
-      },
-      (error) => {
-        console.error('Erro ao registrar aluguel:', error);
+    if (this.dataLocacao < this.dataEntrega) {
+      this.aluguelService
+        .cadastrarLocacao(novaLocacao)
+        .subscribe((response) => {
+          Swal.fire('Aluguel registrado com sucesso!', '', 'success');
+          console.log('Aluguel registrado com sucesso:', response);
+          this.aluguelCriado.emit(); // Emite o evento
+          this.fecharPainel();
+        });
+    } else {
         Swal.fire(
           'Erro ao registrar aluguel',
-          'Tente novamente mais tarde',
+          'Data de locação não pode ser maior ou igual a data de entrega!',
           'error'
         );
-      }
-    );
+    }
   }
 
   calcularNumeroDias(): number {
