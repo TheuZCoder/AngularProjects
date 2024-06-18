@@ -5,6 +5,7 @@ import { AluguelService } from 'src/app/service/aluguel.service';
 import { ClienteService } from 'src/app/service/cliente.service';
 import { Locacao } from 'src/app/models/locacao.model';
 import Swal from 'sweetalert2';
+import { CarrosComponent } from 'src/app/view/carros/carros.component';
 
 @Component({
   selector: 'app-aluguel-painel',
@@ -22,7 +23,8 @@ export class AluguelPainelComponent implements OnInit {
 
   constructor(
     private aluguelService: AluguelService,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private carrosComponents: CarrosComponent
   ) {
     this.bsConfig = Object.assign(
       {},
@@ -60,11 +62,11 @@ export class AluguelPainelComponent implements OnInit {
           this.fecharPainel();
         });
     } else {
-        Swal.fire(
-          'Erro ao registrar aluguel',
-          'Data de locação não pode ser maior ou igual a data de entrega!',
-          'error'
-        );
+      Swal.fire(
+        'Erro ao registrar aluguel',
+        'Data de locação não pode ser maior ou igual a data de entrega!',
+        'error'
+      );
     }
   }
 
@@ -82,5 +84,6 @@ export class AluguelPainelComponent implements OnInit {
 
   fecharPainel(): void {
     this.carro = null;
+    this.carrosComponents.loadCarros();
   }
 }
